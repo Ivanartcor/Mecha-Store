@@ -1,0 +1,81 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Categoria 1",
+            "descripcion": "Descripción de la categoría 1."
+        },
+        {
+            "id": 2,
+            "nombre": "Categoria 2",
+            "descripcion": "Descripción de la categoría 2."
+        },
+        {
+            "id": 3,
+            "nombre": "Categoria 3",
+            "descripcion": "Descripción de la categoría 3."
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Producto 1",
+            "descripcion": "Descripción del producto 1.",
+            "precio": 100,
+            "destacado": true,
+            "id_categoria": 1,
+            "stock": 10,
+            "imagen": "producto1.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "Producto 2",
+            "descripcion": "Descripción del producto 2.",
+            "precio": 200,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 8,
+            "imagen": "producto2.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Producto 3",
+            "descripcion": "Descripción del producto 3.",
+            "precio": 150,
+            "destacado": true,
+            "id_categoria": 2,
+            "stock": 5,
+            "imagen": "producto3.jpg"
+        },
+        {
+            "id": 4,
+            "nombre": "Producto 4",
+            "descripcion": "Descripción del producto 4.",
+            "precio": 300,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 3,
+            "imagen": "producto4.jpg"
+        },
+        {
+            "id": 5,
+            "nombre": "Producto 5",
+            "descripcion": "Descripción del producto 5.",
+            "precio": 250,
+            "destacado": true,
+            "id_categoria": 3,
+            "stock": 4,
+            "imagen": "producto5.jpg"
+        },
+        {
+            "id": 6,
+            "nombre": "Producto 6",
+            "descripcion": "Descripción del producto 6.",
+            "precio": 180,
+            "destacado": false,
+            "id_categoria": 3,
+            "stock": 6,
+            "imagen": "producto6.jpg"
+        }
+    ]
+}

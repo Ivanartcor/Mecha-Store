@@ -6,16 +6,18 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Incluir el archivo de JWT
-require_once "../api/jwt.php";
+require_once "jwt.php";
 
-// Ruta de los datos
+// Rutas de los datos
 $data_file = "../data/usuarios.json";
+$store_file = "../data/tienda.json";
 
 // Verifico si el método de la solicitud es POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Leo y decodifico el JSON de usuarios
     $usuarios = json_decode(file_get_contents($data_file), true);
+    $tienda = json_decode(file_get_contents($store_file), true);
 
     // Obtengo datos del POST
     $input =  json_decode(file_get_contents("php://input"), true);
@@ -37,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     "message" => "Login exitoso",
                     "token" => $token,
                     "nombre" => $usuario['nombre'],
-                    "email" => $usuario['email']
+                    "email" => $usuario['email'],
+                    "tienda" => $tienda //también envio información de la tienda en el token según directrices del ejercicio
                 ]);
                 exit;
             }

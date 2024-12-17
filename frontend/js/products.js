@@ -6,7 +6,7 @@ function cargarDashboard() {
     const user = JSON.parse(localStorage.getItem("user"));
     document.getElementById("nombre").innerText = user.nombre;
 
-    // Obtener la tienda desde el localStorage
+    // Obtener la tienda desde el LocalStorage
     const tienda = JSON.parse(localStorage.getItem("tienda"));
 
     // Filtrar productos destacados
@@ -15,11 +15,11 @@ function cargarDashboard() {
     // Mostrar productos destacados
     mostrarProductosDestacados(productosDestacados);
 
-     // Registrar el evento de clic en el botón de cerrar sesión
-     const logoutButton = document.getElementById("logoutBtn");
-     if (logoutButton) {
-         logoutButton.addEventListener("click", cerrarSesion);
-     }
+    // Mostrar productos vistos
+    mostrarProductosVistos(); 
+
+    // Registrar el evento de clic en el botón de cerrar sesión
+    registrarCierreSesion();
 }
 
 // Mostrar los productos destacados en el dashboard
@@ -33,42 +33,37 @@ function mostrarProductosDestacados(productos) {
     }
 
     productos.forEach(producto => {
-        const productoHTML = `
-            <div class="producto">
-                <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.descripcion}</p>
-                <p><strong>Precio:</strong> $${producto.precio}</p>
-                <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
-            </div>
-        `;
-        contenedor.innerHTML += productoHTML;
+        contenedor.innerHTML += productoHTML(producto);
     });
 }
 
+// Mostrar Productos Vistos Recientemente 
+function mostrarProductosVistos() {
+    const productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
+    const contenedor = document.getElementById("productosVistos");
 
-// Cargar las categorías desde LocalStorage
+    contenedor.innerHTML = productosVistos.length 
+        ? productosVistos.map(productoHTML).join('') 
+        : "<p>No has visto productos recientemente.</p>";
+}
+
+// Redirigir a la ficha del producto
+function verProducto(idProducto) {
+    window.location.href = `product.html?id=${idProducto}`;
+}
+
+// Cargar las Categorías
 function cargarCategorias() {
     verificarAutenticacion(); 
-
-    // Registrar evento para cerrar sesión
-    document.getElementById("logoutBtn").addEventListener("click", cerrarSesion);
 
     const tienda = JSON.parse(localStorage.getItem("tienda"));
     const categoriasContainer = document.getElementById("categoriasContainer");
 
-    categoriasContainer.innerHTML = "";
+    categoriasContainer.innerHTML = tienda.categorias.length 
+        ? tienda.categorias.map(categoriaHTML).join('')
+        : "<p>No hay categorías disponibles.</p>";
 
-    // Mostrar categorías
-    tienda.categorias.forEach(categoria => {
-        const categoriaHTML = `
-            <div class="categoria" onclick="mostrarProductos(${categoria.id})">
-                <h3>${categoria.nombre}</h3>
-                <p>${categoria.descripcion}</p>
-            </div>
-        `;
-        categoriasContainer.innerHTML += categoriaHTML;
-    });
+    registrarCierreSesion();
 }
 
 // Mostrar productos relacionados a una categoría
@@ -76,34 +71,15 @@ function mostrarProductos(idCategoria) {
     const tienda = JSON.parse(localStorage.getItem("tienda"));
     const productosContainer = document.getElementById("productosContainer");
 
-    // Filtrar productos según la categoría seleccionada
     const productos = tienda.productos.filter(p => p.id_categoria === idCategoria);
-
-    productosContainer.innerHTML = "";
-
-    if (productos.length === 0) {
-        productosContainer.innerHTML = "<p>No hay productos disponibles en esta categoría.</p>";
-        return;
-    }
-
-    productos.forEach(producto => {
-        const productoHTML = `
-            <div class="producto">
-                <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.descripcion}</p>
-                <p><strong>Precio:</strong> $${producto.precio}</p>
-                <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
-            </div>
-        `;
-        productosContainer.innerHTML += productoHTML;
-    });
+    productosContainer.innerHTML = productos.length 
+        ? productos.map(productoHTML).join('') 
+        : "<p>No hay productos disponibles en esta categoría.</p>";
 }
 
 
 
-
-// Función básica para agregar productos al carrito
+// Agregar producto al carrito
 function agregarAlCarrito(idProducto) {
     const tienda = JSON.parse(localStorage.getItem("tienda"));
     const producto = tienda.productos.find(p => p.id === idProducto);
@@ -120,5 +96,97 @@ function agregarAlCarrito(idProducto) {
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("Producto agregado al carrito.");
+    }
+}
+
+// Plantilla HTML para una tarjeta de producto
+function productoHTML(producto) {
+    return `
+        <div class="producto" onclick="verProducto(${producto.id})">
+            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p><strong>Precio:</strong> $${producto.precio}</p>
+        </div>
+    `;
+}
+
+// Plantilla HTML para el detalle del producto
+function productoDetalleHTML(producto) {
+    return `
+        <div class="producto-detalle-card">
+            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
+            <h2>${producto.nombre}</h2>
+            <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+            <p><strong>Precio:</strong> $${producto.precio}</p>
+            <p><strong>Stock Disponible:</strong> ${producto.stock}</p>
+            <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+        </div>
+    `;
+}
+
+
+// Plantilla para Categoría
+function categoriaHTML(categoria) {
+    return `
+        <div class="categoria" onclick="mostrarProductos(${categoria.id})">
+            <h3>${categoria.nombre}</h3>
+            <p>${categoria.descripcion}</p>
+        </div>
+    `;
+}
+
+// Registrar el evento de cierre de sesión
+function registrarCierreSesion() {
+    const logoutButton = document.getElementById("logoutBtn");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", cerrarSesion);
+    }
+}
+
+
+// Cargar la ficha del producto
+function cargarProducto() {
+    verificarAutenticacion(); 
+
+    const params = new URLSearchParams(window.location.search);
+    const idProducto = parseInt(params.get("id"));
+
+    const tienda = JSON.parse(localStorage.getItem("tienda"));
+    const producto = tienda.productos.find(p => p.id === idProducto);
+    const productoDetalle = document.getElementById("productoDetalle");
+
+    productoDetalle.innerHTML = producto 
+        ? productoDetalleHTML(producto) 
+        : "<p>Producto no encontrado.</p>";
+
+    registrarCierreSesion();
+}
+
+
+
+
+
+// Redirigir a la Ficha del Producto y Registrar Producto Visto
+function verProducto(idProducto) {
+    registrarProductoVisto(idProducto);
+    window.location.href = `./product.html?id=${idProducto}`; 
+}
+
+// Registrar el Producto como Visto
+function registrarProductoVisto(idProducto) {
+    const tienda = JSON.parse(localStorage.getItem("tienda"));
+    const producto = tienda.productos.find(p => p.id === idProducto);
+
+    if (producto) {
+        let productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
+
+        // Evitar duplicados
+        if (!productosVistos.find(p => p.id === idProducto)) {
+            productosVistos.push(producto);
+            if (productosVistos.length > 5) { // Limitar a 5 productos
+                productosVistos.shift(); 
+            }
+        }
+        localStorage.setItem("productosVistos", JSON.stringify(productosVistos));
     }
 }

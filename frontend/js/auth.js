@@ -50,11 +50,11 @@ function mostrarError(mensaje) {
 }
 
 
-// Cerrar sesión
-document.getElementById("logoutBtn")?.addEventListener("click", () => {
-    localStorage.clear(); // Limpia el almacenamiento
-    window.location.href = "login.html"; // Redirige al login
-});
+// Función para cerrar sesión
+function cerrarSesion() {
+    localStorage.clear(); 
+    window.location.href = "login.html"; 
+}
 
 
 // Función para verificar el token al cargar una página

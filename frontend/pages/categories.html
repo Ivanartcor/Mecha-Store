@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías - Tienda Online</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body onload="cargarCategorias()">
+    <header>
+        <h1>Categorías</h1>
+        <nav>
+            <a href="dashboard.html">Inicio</a>
+            <a href="cart.html">Carrito</a>
+            <button id="logoutBtn">Cerrar Sesión</button>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Listado de Categorías</h2>
+        <div id="categoriasContainer" class="categorias"></div>
+
+        <h2>Productos</h2>
+        <div id="productosContainer" class="productos"></div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/products.js"></script>
+</body>
+</html>

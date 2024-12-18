@@ -1,3 +1,5 @@
+//products.js
+
 // Verificar autenticación antes de cargar el dashboard
 function cargarDashboard() {
     verificarAutenticacion(); // Desde auth.js
@@ -16,7 +18,7 @@ function cargarDashboard() {
     mostrarProductosDestacados(productosDestacados);
 
     // Mostrar productos vistos
-    mostrarProductosVistos(); 
+    mostrarProductosVistos();
 
     // Registrar el evento de clic en el botón de cerrar sesión
     registrarCierreSesion();
@@ -37,31 +39,46 @@ function mostrarProductosDestacados(productos) {
     });
 }
 
-// Mostrar Productos Vistos Recientemente 
+// Mostrar Productos Vistos Recientemente en Dashboard
 function mostrarProductosVistos() {
     const productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
     const contenedor = document.getElementById("productosVistos");
 
-    contenedor.innerHTML = productosVistos.length 
-        ? productosVistos.map(productoHTML).join('') 
+    contenedor.innerHTML = productosVistos.length
+        ? productosVistos.map(productoHTML).join('')
         : "<p>No has visto productos recientemente.</p>";
 }
 
-// Redirigir a la ficha del producto
-function verProducto(idProducto) {
-    window.location.href = `product.html?id=${idProducto}`;
+// Mostrar Productos Vistos Recientemente en cart
+function mostrarProductosVistosCart() {
+    const productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
+    const contenedor = document.getElementById("productosVistosCart");
+
+    contenedor.innerHTML = productosVistos.length
+        ? productosVistos.map(productoHTML).join('')
+        : "<p>No has visto productos recientemente.</p>";
 }
 
-// Cargar las Categorías
+
+// Cargar Categorías y Población del Menú Desplegable
 function cargarCategorias() {
-    verificarAutenticacion(); 
+    verificarAutenticacion();
 
     const tienda = JSON.parse(localStorage.getItem("tienda"));
-    const categoriasContainer = document.getElementById("categoriasContainer");
+    const categorySelect = document.getElementById("categorySelect");
 
-    categoriasContainer.innerHTML = tienda.categorias.length 
-        ? tienda.categorias.map(categoriaHTML).join('')
-        : "<p>No hay categorías disponibles.</p>";
+    if (!tienda.categorias.length) {
+        alert("No hay categorías disponibles.");
+        return;
+    }
+
+    // Agregar opciones al menú desplegable
+    tienda.categorias.forEach(categoria => {
+        const option = document.createElement("option");
+        option.value = categoria.id;
+        option.textContent = categoria.nombre;
+        categorySelect.appendChild(option);
+    });
 
     registrarCierreSesion();
 }
@@ -72,11 +89,42 @@ function mostrarProductos(idCategoria) {
     const productosContainer = document.getElementById("productosContainer");
 
     const productos = tienda.productos.filter(p => p.id_categoria === idCategoria);
-    productosContainer.innerHTML = productos.length 
-        ? productos.map(productoHTML).join('') 
+    productosContainer.innerHTML = productos.length
+        ? productos.map(productoHTML).join('')
         : "<p>No hay productos disponibles en esta categoría.</p>";
 }
 
+
+
+// Mostrar Información de la Categoría Seleccionada
+function mostrarCategoriaSeleccionada() {
+    const tienda = JSON.parse(localStorage.getItem("tienda"));
+    const categoriaId = parseInt(document.getElementById("categorySelect").value);
+
+    const categoryInfo = document.getElementById("categoryInfo");
+    const categoryName = document.getElementById("categoryName");
+    const categoryDescription = document.getElementById("categoryDescription");
+    const productosContainer = document.getElementById("productosContainer");
+
+    if (isNaN(categoriaId) || categoriaId === 0) {
+        categoryInfo.classList.add("hidden");
+        productosContainer.innerHTML = "<p>Selecciona una categoría para ver productos.</p>";
+        return;
+    }
+
+    const categoria = tienda.categorias.find(cat => cat.id === categoriaId);
+    const productos = tienda.productos.filter(p => p.id_categoria === categoriaId);
+
+    // Mostrar la información de la categoría
+    categoryName.textContent = categoria.nombre;
+    categoryDescription.textContent = categoria.descripcion;
+    categoryInfo.classList.remove("hidden");
+
+    // Mostrar productos asociados
+    productosContainer.innerHTML = productos.length
+        ? productos.map(productoHTML).join('')
+        : "<p>No hay productos disponibles en esta categoría.</p>";
+}
 
 
 // Agregar producto al carrito
@@ -96,6 +144,51 @@ function agregarAlCarrito(idProducto) {
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("Producto agregado al carrito.");
+    }
+}
+
+
+// Cargar la ficha del producto
+function cargarProducto() {
+    verificarAutenticacion();
+
+    const params = new URLSearchParams(window.location.search);
+    const idProducto = parseInt(params.get("id"));
+
+    const tienda = JSON.parse(localStorage.getItem("tienda"));
+    const producto = tienda.productos.find(p => p.id === idProducto);
+    const productoDetalle = document.getElementById("productoDetalle");
+
+    productoDetalle.innerHTML = producto
+        ? productoDetalleHTML(producto)
+        : "<p>Producto no encontrado.</p>";
+
+    registrarCierreSesion();
+}
+
+
+// Redirigir a la Ficha del Producto y Registrar Producto Visto
+function verProducto(idProducto) {
+    registrarProductoVisto(idProducto);
+    window.location.href = `./product.html?id=${idProducto}`;
+}
+
+// Registrar el Producto como Visto
+function registrarProductoVisto(idProducto) {
+    const tienda = JSON.parse(localStorage.getItem("tienda"));
+    const producto = tienda.productos.find(p => p.id === idProducto);
+
+    if (producto) {
+        let productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
+
+        // Evitar duplicados
+        if (!productosVistos.find(p => p.id === idProducto)) {
+            productosVistos.push(producto);
+            if (productosVistos.length > 5) { // Limitar a 5 productos
+                productosVistos.shift();
+            }
+        }
+        localStorage.setItem("productosVistos", JSON.stringify(productosVistos));
     }
 }
 
@@ -135,58 +228,3 @@ function categoriaHTML(categoria) {
     `;
 }
 
-// Registrar el evento de cierre de sesión
-function registrarCierreSesion() {
-    const logoutButton = document.getElementById("logoutBtn");
-    if (logoutButton) {
-        logoutButton.addEventListener("click", cerrarSesion);
-    }
-}
-
-
-// Cargar la ficha del producto
-function cargarProducto() {
-    verificarAutenticacion(); 
-
-    const params = new URLSearchParams(window.location.search);
-    const idProducto = parseInt(params.get("id"));
-
-    const tienda = JSON.parse(localStorage.getItem("tienda"));
-    const producto = tienda.productos.find(p => p.id === idProducto);
-    const productoDetalle = document.getElementById("productoDetalle");
-
-    productoDetalle.innerHTML = producto 
-        ? productoDetalleHTML(producto) 
-        : "<p>Producto no encontrado.</p>";
-
-    registrarCierreSesion();
-}
-
-
-
-
-
-// Redirigir a la Ficha del Producto y Registrar Producto Visto
-function verProducto(idProducto) {
-    registrarProductoVisto(idProducto);
-    window.location.href = `./product.html?id=${idProducto}`; 
-}
-
-// Registrar el Producto como Visto
-function registrarProductoVisto(idProducto) {
-    const tienda = JSON.parse(localStorage.getItem("tienda"));
-    const producto = tienda.productos.find(p => p.id === idProducto);
-
-    if (producto) {
-        let productosVistos = JSON.parse(localStorage.getItem("productosVistos")) || [];
-
-        // Evitar duplicados
-        if (!productosVistos.find(p => p.id === idProducto)) {
-            productosVistos.push(producto);
-            if (productosVistos.length > 5) { // Limitar a 5 productos
-                productosVistos.shift(); 
-            }
-        }
-        localStorage.setItem("productosVistos", JSON.stringify(productosVistos));
-    }
-}

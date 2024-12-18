@@ -1,27 +1,42 @@
+<!-- product.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha del Producto</title>
+    <title>Detalles del Producto - Mecha Store</title>
+
+    <!-- Archivos de Estilo -->
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/product.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
+
 <body onload="cargarProducto()">
-    <header>
-        <h1>Detalles del Producto</h1>
-        <nav>
-            <a href="dashboard.html">Inicio</a>
-            <a href="categories.html">Categorías</a>
-            <a href="cart.html">Carrito</a>
-            <button id="logoutBtn">Cerrar Sesión</button>
-        </nav>
-    </header>
 
-    <main>
-        <div id="productoDetalle" class="producto-detalle"></div>
-    </main>
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/products.js"></script>
+<!-- Encabezado -->
+<header class="header">
+    <h1>Detalles del Producto</h1>
+    <nav>
+        <a href="dashboard.html" class="btn-link">Inicio</a>
+        <a href="categories.html" class="btn-link">Categorías</a>
+        <a href="cart.html" class="btn-link">Carrito</a>
+        <button id="logoutBtn" class="btn-action">Cerrar Sesión</button>
+    </nav>
+</header>
+
+<!-- Contenido Principal -->
+<main class="main-product">
+    <div id="productoDetalle" class="producto-detalle"></div>
+</main>
+
+<!-- Scripts -->
+<script src="../js/auth.js"></script>
+<script src="../js/products.js"></script>
+
 </body>
 </html>

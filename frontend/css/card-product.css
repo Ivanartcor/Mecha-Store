@@ -1,0 +1,113 @@
+/*card-product.css*/
+
+/* Estilos de Tarjetas de Productos */
+.producto {
+    background: linear-gradient(145deg, #333, #222);
+    border: 2px solid #ff6600;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    font-size: 1.2em;
+    color: #ffcc00;
+    margin: 5px 0;
+}
+
+.producto p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff6600;
+}
+
+/* Tarjetas de Categorías */
+.categoria {
+    background: linear-gradient(145deg, #333, #222);
+    border: 2px solid #ff6600;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.categoria h3 {
+    font-size: 1.5em;
+    color: #ffcc00;
+    margin: 5px 0;
+}
+
+.categoria p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.categoria:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff6600;
+}
+
+
+/* Tarjetas de Productos del carrito*/
+.producto-carrito {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 102, 0, 0.7);
+    color: #fff;
+    text-align: center;
+}
+
+.producto-carrito img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.producto-carrito h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffa500;
+}
+
+.producto-carrito p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Botones */
+.producto-carrito button, .btn-action {
+    background: linear-gradient(145deg, #ff6600, #ff3300);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.producto-carrito button:hover, .btn-action:hover {
+    background: linear-gradient(145deg, #ff3300, #ff6600);
+    box-shadow: 0 0 10px #ff6600;
+}
+

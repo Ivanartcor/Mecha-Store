@@ -1,7 +1,14 @@
-// URL del servidor
-const API_URL = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/carrito.php";
+//cart.js
 
-// Cargar el Carrito
+// URL del servidor para carrito
+const API_URL_CART = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/carrito.php";
+
+
+// Cargar el carrito después de que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", cargarCarrito);
+
+
+// Función para cargar el Carrito
 function cargarCarrito() {
     verificarAutenticacion(); 
 
@@ -21,24 +28,11 @@ function cargarCarrito() {
     const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
     totalCompra.innerText = `Total a Pagar: $${total.toFixed(2)}`;
 
+    mostrarProductosVistosCart();
+
     registrarCierreSesion();
 }
 
-// Plantilla HTML para Productos en el Carrito
-function productoCarritoHTML(producto) {
-    return `
-        <div class="producto-carrito">
-            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
-            <h3>${producto.nombre}</h3>
-            <p><strong>Precio:</strong> $${producto.precio}</p>
-            <p><strong>Cantidad:</strong> 
-                <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${producto.id}, this.value)">
-            </p>
-            <p><strong>Subtotal:</strong> $${(producto.precio * producto.cantidad).toFixed(2)}</p>
-            <button onclick="eliminarDelCarrito(${producto.id})">Eliminar</button>
-        </div>
-    `;
-}
 
 // Agregar Producto al Carrito
 function agregarAlCarrito(idProducto) {
@@ -92,7 +86,7 @@ async function finalizarCompra() {
 
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_URL_CART, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -101,6 +95,7 @@ async function finalizarCompra() {
             body: JSON.stringify({ carrito })
         });
 
+   
         const data = await response.json();
         if (response.status === 200 && data.status === "success") {
             alert("Compra realizada con éxito.");
@@ -115,16 +110,26 @@ async function finalizarCompra() {
     }
 }
 
-// Mostrar Errores
+
+// Plantilla HTML para Productos en el Carrito
+function productoCarritoHTML(producto) {
+    return `
+        <div class="producto-carrito">
+            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p><strong>Precio:</strong> $${producto.precio}</p>
+            <p><strong>Cantidad:</strong> 
+                <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${producto.id}, this.value)">
+            </p>
+            <p><strong>Subtotal:</strong> $${(producto.precio * producto.cantidad).toFixed(2)}</p>
+            <button onclick="eliminarDelCarrito(${producto.id})">Eliminar</button>
+        </div>
+    `;
+}
+
+// Mostrar Errores en la Compra
 function mostrarErrores(errores) {
     const carritoContainer = document.getElementById("carritoContainer");
     carritoContainer.innerHTML = errores.map(err => `<p class="error">${err}</p>`).join('');
 }
 
-// Registrar Cierre de Sesión
-function registrarCierreSesion() {
-    const logoutButton = document.getElementById("logoutBtn");
-    if (logoutButton) {
-        logoutButton.addEventListener("click", cerrarSesion);
-    }
-}

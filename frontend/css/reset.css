@@ -1,0 +1,14 @@
+/*reset.css*/
+
+/* Eliminar márgenes, rellenos y bordes predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #1a1a1a;
+    color: #f0f0f0;
+}

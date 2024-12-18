@@ -1,31 +1,75 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Tienda Online</title>
+    <title>Dashboard - Mecha Store</title>
+
+    <!-- Archivos de Estilo -->
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/card-product.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body onload="cargarDashboard()">
-    <header>
-        <h1>Bienvenido, <span id="nombre"></span></h1>
-        <nav>
-            <a href="categories.html">Categorías</a>
-            <a href="cart.html">Carrito</a>
-            <button id="logoutBtn">Cerrar Sesión</button>
-        </nav>
-    </header>
 
-    <main>
-        <h2>Productos Destacados</h2>
-        <div id="productosDestacados" class="productos"></div>
-    
-        <h2>Productos Vistos Recientemente</h2>
-        <div id="productosVistos" class="productos"></div>
-    </main>
-    
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/products.js"></script>
+<!-- Encabezado -->
+<header class="header">
+    <h1>Bienvenido, <span id="nombre"></span></h1>
+    <nav>
+        <a href="categories.html" class="btn-link">Categorías</a>
+        <a href="cart.html" class="btn-link">Carrito</a>
+        <button id="logoutBtn" class="btn-action">Cerrar Sesión</button>
+    </nav>
+</header>
+
+
+<!-- Contenido Principal -->
+<main class="main-dashboard">
+
+    <!-- Sección Introductoria -->
+    <section class="intro-section">
+        <video autoplay muted loop id="intro-video">
+            <source src="../assets/videos/video_presentation_3.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+
+        <div class="intro-content">
+            <h2>Bienvenido a Mecha Store</h2>
+            <p>
+                Equipa tu mecha con los mejores módulos de combate, armaduras resistentes, 
+                núcleos de energía de última generación y armas especializadas. 
+                ¡Prepárate para la batalla y domina el campo de combate!
+            </p>
+            <p>
+                Explora nuestras categorías para encontrar mechas completos, sistemas de control avanzados, 
+                y piezas esenciales para reparaciones y mejoras. ¡Personaliza y potencia tu fuerza de combate!
+            </p>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="productos-section">
+        <h2 class="section-title">Productos Destacados</h2>
+        <div id="productosDestacados" class="productos-grid"></div>
+    </section>
+
+    <!-- Productos Vistos Recientemente -->
+    <section class="productos-section">
+        <h2 class="section-title">Productos Vistos Recientemente</h2>
+        <div id="productosVistos" class="productos-grid"></div>
+    </section>
+
+</main>
+
+<!-- Scripts -->
+<script src="../js/auth.js"></script>
+<script src="../js/products.js"></script>
+
 </body>
 </html>

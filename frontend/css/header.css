@@ -1,0 +1,47 @@
+/* Estilos del Encabezado */
+.header {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../assets/images/background-header.jpg') no-repeat center center/cover;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffcc00;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff6600;
+
+}
+
+/* Título Principal */
+.header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(255, 165, 0, 0.7);
+}
+
+/* Navegación */
+.header nav {
+    margin-top: 15px;
+}
+
+.btn-link, .btn-action {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: #ff6600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-link:hover, .btn-action:hover {
+    background: #ff3300;
+    box-shadow: 0 0 10px #ff6600;
+}

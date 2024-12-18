@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 // Incluir el archivo de JWT
-require_once "../utils/jwt.php";
+require_once "jwt.php";
 
 // Ruta del archivo JSON de la tienda
 $data_file = "../data/tienda.json";
@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "status" => "success",
         "message" => "Compra validada correctamente"
     ]);
+    exit;
 } else {
     http_response_code(405); // Método no permitido
     echo json_encode([

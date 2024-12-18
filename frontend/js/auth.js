@@ -1,6 +1,8 @@
-// URL del servidor
-const API_URL = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/login.php";
-//const API_URL = "../../backend/api/login.php";
+//auth.js
+
+// URL del servidor para login
+const API_URL_LOGIN = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/login.php";
+//const API_URL_LOGIN = "../../backend/api/login.php";
 
 //manejar el inicio de sesión
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
@@ -12,7 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     try {
         // Enviar la solicitud POST al servidor
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_URL_LOGIN, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -44,11 +46,6 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 });
 
 
-// Mostrar mensajes de error
-function mostrarError(mensaje) {
-    document.getElementById("error-message").innerText = mensaje;
-}
-
 
 // Función para cerrar sesión
 function cerrarSesion() {
@@ -59,10 +56,31 @@ function cerrarSesion() {
 
 // Función para verificar el token al cargar una página
 function verificarAutenticacion() {
+    //Actualmente solo comprobamos que exista en el localStorage
     const token = localStorage.getItem("token");
     if (!token) {
         window.location.href = "login.html"; // Redirige si no hay token
     }
+    //Se puede añadir lógica para verificas si ha expirado,
+    //o enviarlo al servidor para comprobar si es válido decodificándolo
 }
+
+// Registrar el evento de cierre de sesión en todas las páginas
+function registrarCierreSesion() {
+    const logoutButton = document.getElementById("logoutBtn");
+    if (logoutButton) {
+        logoutButton.removeEventListener("click", cerrarSesion); // Evitar duplicados
+        logoutButton.addEventListener("click", cerrarSesion);
+    } else {
+        console.error("Botón de cierre de sesión no encontrado.");
+    }
+}
+
+// Mostrar mensajes de error
+function mostrarError(mensaje) {
+    document.getElementById("error-message").innerText = mensaje;
+}
+
+
 
 

@@ -2,80 +2,155 @@
     "categorias": [
         {
             "id": 1,
-            "nombre": "Categoria 1",
-            "descripcion": "Descripción de la categoría 1."
+            "nombre": "Mechas de Combate",
+            "descripcion": "Unidades de combate humanoides listas para enfrentarse a cualquier amenaza."
         },
         {
             "id": 2,
-            "nombre": "Categoria 2",
-            "descripcion": "Descripción de la categoría 2."
+            "nombre": "Armas Especializadas",
+            "descripcion": "Armamento de alta potencia diseñado para devastar Kaijus y enemigos mecanizados."
         },
         {
             "id": 3,
-            "nombre": "Categoria 3",
-            "descripcion": "Descripción de la categoría 3."
-        }
-    ],
-    "productos": [
-        {
-            "id": 1,
-            "nombre": "Producto 1",
-            "descripcion": "Descripción del producto 1.",
-            "precio": 100,
-            "destacado": true,
-            "id_categoria": 1,
-            "stock": 10,
-            "imagen": "producto1.jpg"
-        },
-        {
-            "id": 2,
-            "nombre": "Producto 2",
-            "descripcion": "Descripción del producto 2.",
-            "precio": 200,
-            "destacado": false,
-            "id_categoria": 1,
-            "stock": 8,
-            "imagen": "producto2.jpg"
-        },
-        {
-            "id": 3,
-            "nombre": "Producto 3",
-            "descripcion": "Descripción del producto 3.",
-            "precio": 150,
-            "destacado": true,
-            "id_categoria": 2,
-            "stock": 5,
-            "imagen": "producto3.jpg"
+            "nombre": "Módulos de Defensa",
+            "descripcion": "Sistemas de protección avanzada para resistir ataques devastadores."
         },
         {
             "id": 4,
-            "nombre": "Producto 4",
-            "descripcion": "Descripción del producto 4.",
-            "precio": 300,
-            "destacado": false,
-            "id_categoria": 2,
-            "stock": 3,
-            "imagen": "producto4.jpg"
+            "nombre": "Componentes de Mejora",
+            "descripcion": "Piezas esenciales para mejorar el rendimiento de cualquier mecha o base."
         },
         {
             "id": 5,
-            "nombre": "Producto 5",
-            "descripcion": "Descripción del producto 5.",
-            "precio": 250,
-            "destacado": true,
-            "id_categoria": 3,
-            "stock": 4,
-            "imagen": "producto5.jpg"
+            "nombre": "Fuentes de Energía",
+            "descripcion": "Núcleos de energía de fusión y reactores avanzados para mantener la potencia máxima."
         },
         {
             "id": 6,
-            "nombre": "Producto 6",
-            "descripcion": "Descripción del producto 6.",
-            "precio": 180,
+            "nombre": "Consumibles de Combate",
+            "descripcion": "Provisiones necesarias para largas campañas y operaciones de campo."
+        }
+    ],
+
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Titan MK-III",
+            "descripcion_corta": "Mecha pesado equipado con cañón de plasma.",
+            "descripcion_larga": "El Titan MK-III es una máquina de combate terrestre equipada con un cañón de plasma devastador y una armadura blindada capaz de resistir los ataques más feroces. Ideal para enfrentamientos contra enemigos mecanizados de gran tamaño.",
+            "precio": 5000,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 2,
+            "imagen": "mecha_titan_mk3.jpg",
+            "caracteristicas": {
+                "peso": "80 toneladas",
+                "altitud_maxima": "500 m",
+                "potencia_armamento": "Alto",
+                "blindaje": "Reforzado"
+            }
+        },
+        {
+            "id": 2,
+            "nombre": "Guerrero Valkyria X",
+            "descripcion_corta": "Mecha ágil con lanzamisiles.",
+            "descripcion_larga": "El Guerrero Valkyria X destaca por su velocidad y capacidad aérea. Equipado con lanzamisiles guiados y un sistema de vuelo avanzado, es ideal para misiones de intercepción y combate aéreo.",
+            "precio": 4500,
+            "destacado": true,
+            "id_categoria": 1,
+            "stock": 1,
+            "imagen": "mecha_valkyria_x.jpg",
+            "caracteristicas": {
+                "velocidad_maxima": "Mach 2",
+                "altitud_operativa": "8000 m",
+                "potencia_armamento": "Media",
+                "sistemas_adicionales": "Cañones de energía"
+            }
+        },
+        {
+            "id": 3,
+            "nombre": "Cañón Destructor NX",
+            "descripcion_corta": "Arma de largo alcance de máxima potencia.",
+            "descripcion_larga": "El Cañón Destructor NX es un arma diseñada para operaciones a larga distancia. Su capacidad de proyectiles de plasma lo convierte en un arma devastadora contra estructuras y objetivos pesados.",
+            "precio": 3200,
+            "destacado": true,
+            "id_categoria": 2,
+            "stock": 5,
+            "imagen": "arma_canon_destructor.jpg",
+            "caracteristicas": {
+                "tipo": "Arma de largo alcance",
+                "alcance_maximo": "10 km",
+                "potencia": "Extrema",
+                "municion": "Proyectiles de plasma"
+            }
+        },
+        {
+            "id": 4,
+            "nombre": "Espada Térmica TX-42",
+            "descripcion_corta": "Espada de plasma de filo extremo.",
+            "descripcion_larga": "La Espada Térmica TX-42 está diseñada para el combate cuerpo a cuerpo. Su hoja de tungsteno reforzado alcanza temperaturas de hasta 5000 °C, capaz de cortar blindajes Kaiju con facilidad.",
+            "precio": 2000,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 8,
+            "imagen": "arma_espada_termica.jpg",
+            "caracteristicas": {
+                "tipo": "Cuerpo a cuerpo",
+                "longitud": "2.5 m",
+                "material": "Tungsteno reforzado",
+                "temperatura_maxima": "5000 °C"
+            }
+        },
+        {
+            "id": 5,
+            "nombre": "Escudo Reflector Aegis",
+            "descripcion_corta": "Escudo de energía protector.",
+            "descripcion_larga": "El Escudo Reflector Aegis genera un campo de energía capaz de bloquear ataques de alta potencia. Diseñado para proporcionar defensa activa en misiones de alto riesgo.",
+            "precio": 2800,
             "destacado": false,
             "id_categoria": 3,
-            "stock": 6,
-            "imagen": "producto6.jpg"
+            "stock": 4,
+            "imagen": "modulo_escudo_aegis.jpg",
+            "caracteristicas": {
+                "tipo": "Defensa Activa",
+                "potencia_bloqueo": "Alta",
+                "durabilidad": "Resistente a impactos críticos",
+                "generador": "Reactor interno"
+            }
+        },
+        {
+            "id": 6,
+            "nombre": "Reactor de Fusión Z-Core",
+            "descripcion_corta": "Reactor de energía máxima.",
+            "descripcion_larga": "El Reactor de Fusión Z-Core proporciona energía constante para múltiples unidades. Su autonomía y potencia lo convierten en un elemento clave en cualquier operación prolongada.",
+            "precio": 6000,
+            "destacado": true,
+            "id_categoria": 5,
+            "stock": 3,
+            "imagen": "energia_reactor_zcore.jpg",
+            "caracteristicas": {
+                "tipo": "Reactor de Fusión",
+                "potencia_maxima": "50 GW",
+                "autonomia": "30 días",
+                "peso": "40 toneladas"
+            }
+        },
+        {
+            "id": 7,
+            "nombre": "Kit de Reparación R-100",
+            "descripcion_corta": "Kit completo para reparaciones.",
+            "descripcion_larga": "El Kit de Reparación R-100 es una solución portátil para mantenimiento en el campo de batalla. Contiene repuestos universales y es compatible con todos los modelos de mechas.",
+            "precio": 500,
+            "destacado": false,
+            "id_categoria": 6,
+            "stock": 20,
+            "imagen": "consumible_kit_reparacion.jpg",
+            "caracteristicas": {
+                "contenido": "Repuestos universales",
+                "uso_maximo": "5 reparaciones",
+                "peso": "12 kg",
+                "compatibilidad": "Todos los modelos"
+            }
         }
     ]
 }

@@ -110,22 +110,26 @@ async function finalizarCompra() {
     }
 }
 
-
 // Plantilla HTML para Productos en el Carrito
 function productoCarritoHTML(producto) {
+    const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
+        ? `../assets/images/${producto.imagen}` 
+        : "../assets/images/default-product.jpg"; // Imagen genérica
+    
     return `
         <div class="producto-carrito">
-            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
+            <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
             <h3>${producto.nombre}</h3>
-            <p><strong>Precio:</strong> $${producto.precio}</p>
+            <p><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
             <p><strong>Cantidad:</strong> 
                 <input type="number" value="${producto.cantidad}" min="1" onchange="actualizarCantidad(${producto.id}, this.value)">
             </p>
             <p><strong>Subtotal:</strong> $${(producto.precio * producto.cantidad).toFixed(2)}</p>
-            <button onclick="eliminarDelCarrito(${producto.id})">Eliminar</button>
+            <button class="btn-delete" onclick="eliminarDelCarrito(${producto.id})">Eliminar</button>
         </div>
     `;
 }
+
 
 // Mostrar Errores en la Compra
 function mostrarErrores(errores) {

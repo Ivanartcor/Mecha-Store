@@ -157,12 +157,13 @@ function cargarProducto() {
 
     const tienda = JSON.parse(localStorage.getItem("tienda"));
     const producto = tienda.productos.find(p => p.id === idProducto);
-    const productoDetalle = document.getElementById("productoDetalle");
-
-    productoDetalle.innerHTML = producto
-        ? productoDetalleHTML(producto)
-        : "<p>Producto no encontrado.</p>";
-
+    if (producto) {
+        document.getElementById("productoDetalle").innerHTML = productoDetalleHTML(producto);
+        mostrarDescripcion(producto);
+        mostrarCaracteristicas(producto);
+    } else {
+        document.getElementById("productoDetalle").innerHTML = "<p>Producto no encontrado.</p>";
+    }
     registrarCierreSesion();
 }
 
@@ -192,30 +193,82 @@ function registrarProductoVisto(idProducto) {
     }
 }
 
+
+
+function mostrarTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-link');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`.tab-link[onclick="mostrarTab('${tabId}')"]`).classList.add('active');
+}
+
+function mostrarDescripcion(producto) {
+    document.getElementById("descripcion").innerHTML = `<p class="descripcion-larga">${producto.descripcion_larga}</p>`;
+}
+
+function mostrarCaracteristicas(producto) {
+    const caracteristicas = Object.entries(producto.caracteristicas)
+        .map(([clave, valor]) => `<p><strong>${clave}:</strong> ${valor}</p>`)
+        .join('');
+    document.getElementById("caracteristicas").innerHTML = caracteristicas;
+}
+
 // Plantilla HTML para una tarjeta de producto
 function productoHTML(producto) {
+    const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
+        ? `../assets/images/${producto.imagen}` 
+        : "../assets/images/default-product.jpg"; // Imagen genérica
+    
+    const botonCarrito = producto.stock > 0 
+        ? `<button class="btn-action" onclick="agregarAlCarrito(${producto.id}, event)">Añadir al Carrito</button>`
+        : `<p class="sin-stock">Sin Stock</p>`;
+
     return `
         <div class="producto" onclick="verProducto(${producto.id})">
-            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
+            <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
             <h3>${producto.nombre}</h3>
-            <p><strong>Precio:</strong> $${producto.precio}</p>
+            <p><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
+            <div class="acciones-producto" onclick="event.stopPropagation();">
+                ${botonCarrito}
+            </div>
         </div>
     `;
 }
 
-// Plantilla HTML para el detalle del producto
 function productoDetalleHTML(producto) {
+    const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
+        ? `../assets/images/${producto.imagen}` 
+        : "../assets/images/default-product.jpg";
+
+    const botonCarrito = producto.stock > 0 
+        ? `<button class="btn-action" onclick="agregarAlCarrito(${producto.id})">Añadir al Carrito</button>`
+        : `<p class="sin-stock">Sin Stock</p>`;
+
     return `
-        <div class="producto-detalle-card">
-            <img src="../assets/images/${producto.imagen}" alt="${producto.nombre}">
-            <h2>${producto.nombre}</h2>
-            <p><strong>Descripción:</strong> ${producto.descripcion}</p>
-            <p><strong>Precio:</strong> $${producto.precio}</p>
-            <p><strong>Stock Disponible:</strong> ${producto.stock}</p>
-            <button onclick="agregarAlCarrito(${producto.id})">Agregar al Carrito</button>
+        <div class="detalle-grid">
+            <div class="detalle-imagen">
+                <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
+            </div>
+
+            <div class="detalle-info">
+                <h2>${producto.nombre}</h2>
+                <p class="texto-precio"><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
+                <p>${producto.descripcion_corta}</p>
+                <p>Stock disponible: ${producto.stock}</p>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" min="1" max="${producto.stock}" value="1">
+                <div class="boton-carrito">
+                    ${botonCarrito}
+                </div>
+            </div>
         </div>
     `;
 }
+
 
 
 // Plantilla para Categoría

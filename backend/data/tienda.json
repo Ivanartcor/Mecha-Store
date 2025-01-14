@@ -58,7 +58,7 @@
             "precio": 4500,
             "destacado": true,
             "id_categoria": 1,
-            "stock": 1,
+            "stock": 0,
             "imagen": "mecha_valkyria_x.jpg",
             "caracteristicas": {
                 "velocidad_maxima": "Mach 2",

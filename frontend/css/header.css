@@ -1,3 +1,5 @@
+/*header.css*/
+
 /* Estilos del Encabezado */
 .header {
     position: relative;
@@ -25,6 +27,8 @@
 /* Navegación */
 .header nav {
     margin-top: 15px;
+    display: flex;
+    gap: 20px;
 }
 
 .btn-link, .btn-action {

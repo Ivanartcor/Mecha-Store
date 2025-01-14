@@ -216,7 +216,6 @@ function mostrarCaracteristicas(producto) {
         .join('');
     document.getElementById("caracteristicas").innerHTML = caracteristicas;
 }
-
 // Plantilla HTML para una tarjeta de producto
 function productoHTML(producto) {
     const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
@@ -229,11 +228,15 @@ function productoHTML(producto) {
 
     return `
         <div class="producto" onclick="verProducto(${producto.id})">
-            <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
-            <h3>${producto.nombre}</h3>
-            <p><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
-            <div class="acciones-producto" onclick="event.stopPropagation();">
-                ${botonCarrito}
+            <div class="producto-imagen">
+                <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
+            </div>
+            <div class="producto-info">
+                <h3>${producto.nombre}</h3>
+                <p class="texto-precio"><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
+                <div class="acciones-producto" onclick="event.stopPropagation();">
+                    ${botonCarrito}
+                </div>
             </div>
         </div>
     `;

@@ -1,50 +1,15 @@
 /*styles.css*/
 
-/* Efecto de metal desgastado */
-body {
-    background: url('../assets/images/metal-texture.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
 h1, h2, h3 {
     text-transform: uppercase;
     color: #ffa500; /* Tono de energía */
     text-shadow: 2px 2px 8px rgba(255, 165, 0, 0.7);
 }
 
-a {
-    color: #ff6600;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ff3300;
-}
-
-button {
-    background: linear-gradient(145deg, #ff6600, #ff3300);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    background: linear-gradient(145deg, #ff3300, #ff6600);
-}
-
-/* Botones de cierre de sesión y compra */
-#logoutBtn, #finalizarCompraBtn {
-    margin-top: 15px;
-}
 
 /* Aplicar Orbitron para encabezados y títulos */
 h1, h2, h3, .section-title {
     font-family: 'Orbitron', sans-serif;
-    color: #ffa500;
-    text-shadow: 2px 2px 8px rgba(255, 165, 0, 0.7);
 }
 
 /* Aplicar Russo One para botones y enlaces */

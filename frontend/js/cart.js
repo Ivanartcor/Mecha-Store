@@ -1,5 +1,13 @@
 //cart.js
 
+// cart.js
+
+import { loadCart } from "./events/cartEvents.js";
+
+document.addEventListener("DOMContentLoaded", loadCart);
+
+
+/*
 // URL del servidor para carrito
 const API_URL_CART = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/carrito.php";
 
@@ -137,3 +145,4 @@ function mostrarErrores(errores) {
     carritoContainer.innerHTML = errores.map(err => `<p class="error">${err}</p>`).join('');
 }
 
+*/

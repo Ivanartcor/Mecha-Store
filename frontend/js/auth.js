@@ -1,5 +1,15 @@
-//auth.js
+// auth.js
 
+import { handleLogin, handleLogout, verifyAuthentication } from "./events/authEvents.js";
+
+document.getElementById("loginForm")?.addEventListener("submit", handleLogin);
+
+document.getElementById("logoutBtn")?.addEventListener("click", handleLogout);
+
+document.addEventListener("DOMContentLoaded", verifyAuthentication);
+
+
+/*
 // URL del servidor para login
 const API_URL_LOGIN = "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/api/login.php";
 //const API_URL_LOGIN = "../../backend/api/login.php";
@@ -84,3 +94,4 @@ function mostrarError(mensaje) {
 
 
 
+*/

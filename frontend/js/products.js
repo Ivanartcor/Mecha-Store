@@ -1,5 +1,22 @@
 //products.js
 
+
+import { mostrarProductosDestacados } from "./events/productEvents.js";
+import { cargarCategorias, mostrarProductosCategoria } from "./events/categoryEvents.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarProductosDestacados();
+    cargarCategorias();
+
+    document.getElementById("categorySelect")?.addEventListener("change", (e) => {
+        mostrarProductosCategoria(parseInt(e.target.value));
+    });
+});
+
+
+/*
+
+
 // Verificar autenticación antes de cargar el dashboard
 function cargarDashboard() {
     verificarAutenticacion(); // Desde auth.js
@@ -283,4 +300,6 @@ function categoriaHTML(categoria) {
         </div>
     `;
 }
+
+*/
 

@@ -1,8 +1,12 @@
 // dashboard.js
 
-import { mostrarProductosDestacados, mostrarProductosVistos } from "./events/productEvents.js";
+import { mostrarProductosDestacados, mostrarProductosVistos, verProducto } from "./events/productEvents.js";
 import { initAuthPage } from "./events/authEvents.js";
 import { loadHeader } from "./header.js";
+
+
+// Exponer la función globalmente para que sea accesible en el HTML
+window.verProducto = verProducto;
 
 document.addEventListener("DOMContentLoaded", () => {
 

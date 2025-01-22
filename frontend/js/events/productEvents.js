@@ -59,6 +59,10 @@ export function mostrarDetallesProducto(idProducto) {
 
     registrarProductoVisto(idProducto);
     setInnerHTML("productoDetalle", productoDetalleHTML(producto));
+
+    mostrarDescripcion(producto);
+    mostrarCaracteristicas(producto);
+
 }
 
 // Redirigir a la página de producto
@@ -67,6 +71,31 @@ export function verProducto(idProducto) {
     window.location.href = `./product.html?id=${idProducto}`;
 }
 
+
+// Función para manejar el cambio de pestañas (descripción y características)
+export function mostrarTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-link');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`.tab-link[onclick="mostrarTab('${tabId}')"]`).classList.add('active');
+}
+
+// Mostrar la descripción del producto
+export function mostrarDescripcion(producto) {
+    setInnerHTML("descripcion", `<p class="descripcion-larga">${producto.descripcion_larga}</p>`);
+}
+
+// Mostrar las características del producto
+export function mostrarCaracteristicas(producto) {
+    const caracteristicas = Object.entries(producto.caracteristicas)
+        .map(([clave, valor]) => `<p><strong>${clave}:</strong> ${valor}</p>`)
+        .join('');
+    setInnerHTML("caracteristicas", caracteristicas);
+}
 
 // Plantilla HTML para una tarjeta de producto
 function productoHTML(producto) {

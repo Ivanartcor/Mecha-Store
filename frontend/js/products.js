@@ -1,18 +1,27 @@
 //products.js
 
 import { initAuthPage } from "./events/authEvents.js";
-import { mostrarDetallesProducto } from "./events/productEvents.js";
+import { mostrarDetallesProducto, mostrarTab } from "./events/productEvents.js";
+import { loadHeader } from "./header.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    initAuthPage(); // Verifico token y inicializo eventos de usuario
 
-    // Obtener el id del producto desde la URL y mostrar sus detalles
-    const params = new URLSearchParams(window.location.search);
-    const idProducto = parseInt(params.get("id"));
+    loadHeader().then(() => {
+        initAuthPage(); // Verifico token y inicializo eventos de usuario
 
-    if (idProducto) {
-        mostrarDetallesProducto(idProducto);
-    }
+        // Obtener el id del producto desde la URL y mostrar sus detalles
+        const params = new URLSearchParams(window.location.search);
+        const idProducto = parseInt(params.get("id"));
+
+        if (idProducto) {
+            mostrarDetallesProducto(idProducto);
+        }
+
+        window.mostrarTab = mostrarTab;
+
+    }).catch(error => console.error("Error al inicializar la página:", error));
 });
 
 /*

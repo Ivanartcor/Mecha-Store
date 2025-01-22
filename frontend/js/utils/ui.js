@@ -1,6 +1,8 @@
 // utils/ui.js
 //Encargado de manipular el DOM.
 
+
+
 export function showError(message, elementId) {
     const errorElement = document.getElementById(elementId);
     if (errorElement) errorElement.innerText = message;

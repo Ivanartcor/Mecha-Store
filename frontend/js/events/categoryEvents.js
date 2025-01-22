@@ -21,15 +21,17 @@ export function cargarCategorias() {
     });
 }
 
-// Mostrar productos de una categoría seleccionada
 export function mostrarProductosCategoria(idCategoria) {
     const tienda = getItem("tienda");
     const productosContainer = document.getElementById("productosContainer");
 
     const productos = tienda.productos.filter(p => p.id_categoria === idCategoria);
-    productosContainer.innerHTML = productos.length
-        ? productos.map(productoHTML).join("")
-        : "<p>No hay productos disponibles en esta categoría.</p>";
+    setInnerHTML(
+        "productosContainer",
+        productos.length
+            ? productos.map(productoHTML).join("")
+            : "<p>No hay productos disponibles en esta categoría.</p>"
+    );
 }
 
 // Plantilla HTML para una categoría

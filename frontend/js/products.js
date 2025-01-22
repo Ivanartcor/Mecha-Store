@@ -1,18 +1,19 @@
 //products.js
 
-
-import { mostrarProductosDestacados } from "./events/productEvents.js";
-import { cargarCategorias, mostrarProductosCategoria } from "./events/categoryEvents.js";
+import { initAuthPage } from "./events/authEvents.js";
+import { mostrarDetallesProducto } from "./events/productEvents.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarProductosDestacados();
-    cargarCategorias();
+    initAuthPage(); // Verifico token y inicializo eventos de usuario
 
-    document.getElementById("categorySelect")?.addEventListener("change", (e) => {
-        mostrarProductosCategoria(parseInt(e.target.value));
-    });
+    // Obtener el id del producto desde la URL y mostrar sus detalles
+    const params = new URLSearchParams(window.location.search);
+    const idProducto = parseInt(params.get("id"));
+
+    if (idProducto) {
+        mostrarDetallesProducto(idProducto);
+    }
 });
-
 
 /*
 

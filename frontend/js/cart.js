@@ -1,11 +1,16 @@
-//cart.js
-
 // cart.js
 
-import { loadCart } from "./events/cartEvents.js";
+import { initAuthPage } from "./events/authEvents.js";
+import { registerCartEvents } from "./events/cartEvents.js";
 
-document.addEventListener("DOMContentLoaded", loadCart);
-
+document.addEventListener("DOMContentLoaded", () => {
+    initAuthPage();
+    
+    const carritoContainer = document.getElementById("carritoContainer");
+    if (carritoContainer) {
+        registerCartEvents();
+    }
+});
 
 /*
 // URL del servidor para carrito

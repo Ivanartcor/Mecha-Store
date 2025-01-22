@@ -1,13 +1,14 @@
 // auth.js
 
-import { handleLogin, handleLogout, verifyAuthentication } from "./events/authEvents.js";
+import { handleLogin } from "./events/authEvents.js";
 
-document.getElementById("loginForm")?.addEventListener("submit", handleLogin);
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", handleLogin);
+    }
 
-document.getElementById("logoutBtn")?.addEventListener("click", handleLogout);
-
-document.addEventListener("DOMContentLoaded", verifyAuthentication);
-
+});
 
 /*
 // URL del servidor para login

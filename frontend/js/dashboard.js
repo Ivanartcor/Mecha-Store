@@ -1,12 +1,12 @@
 // dashboard.js
 
-import { mostrarProductosDestacados, mostrarProductosVistos, verProducto } from "./events/productEvents.js";
+import { mostrarProductosDestacados, mostrarProductosVistos, registrarEventosProductos } from "./events/productEvents.js";
 import { initAuthPage } from "./events/authEvents.js";
 import { loadHeader } from "./header.js";
 
 
 // Exponer la función globalmente para que sea accesible en el HTML
-window.verProducto = verProducto;
+//window.verProducto = verProducto;
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -22,5 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (document.getElementById("productosVistos")) {
             mostrarProductosVistos();
         }
+
+        registrarEventosProductos();
+
     }).catch(error => console.error("Error al inicializar la página:", error));
 });

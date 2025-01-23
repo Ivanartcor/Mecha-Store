@@ -1,7 +1,7 @@
 //products.js
 
 import { initAuthPage } from "./events/authEvents.js";
-import { mostrarDetallesProducto, mostrarTab } from "./events/productEvents.js";
+import { mostrarDetallesProducto, registrarEventosTabs, registrarEventosDetallesProducto } from "./events/productEvents.js";
 import { loadHeader } from "./header.js";
 
 
@@ -19,8 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
             mostrarDetallesProducto(idProducto);
         }
 
-        window.mostrarTab = mostrarTab;
+        //window.mostrarTab = mostrarTab;
 
+        registrarEventosDetallesProducto();
+        
     }).catch(error => console.error("Error al inicializar la página:", error));
 });
 

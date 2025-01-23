@@ -2,6 +2,7 @@
 
 import { getItem, setItem } from "../utils/storage.js";
 import { setInnerHTML } from "../utils/ui.js";
+import { addToCart } from "./cartEvents.js";
 
 // Mostrar productos destacados en el dashboard
 export function mostrarProductosDestacados() {
@@ -20,6 +21,8 @@ export function mostrarProductosDestacados() {
         "productosDestacados",
         productosDestacados.map(productoHTML).join("")
     );
+
+
 }
 
 // Mostrar productos vistos recientemente en dashboard
@@ -67,10 +70,72 @@ export function mostrarDetallesProducto(idProducto) {
 
 // Redirigir a la página de producto
 export function verProducto(idProducto) {
-    registrarProductoVisto(idProducto);
+    //registrarProductoVisto(idProducto);
     window.location.href = `./product.html?id=${idProducto}`;
 }
 
+
+export function registrarEventosProductos() {
+    document.addEventListener("click", (event) => {
+        const productoCard = event.target.closest(".card-producto");
+        const addCartButton = event.target.closest(".btn-add-cart");
+
+        // Manejar clic en la tarjeta del producto
+        if (productoCard && !addCartButton) {
+            const idProducto = parseInt(productoCard.dataset.id, 10);
+            if (!isNaN(idProducto)) {
+                verProducto(idProducto);
+            } else {
+                console.error("ID del producto no válido.");
+            }
+        }
+
+        // Manejar clic en el botón de agregar al carrito
+        if (addCartButton) {
+            const idProducto = parseInt(addCartButton.dataset.id, 10);
+            if (!isNaN(idProducto)) {
+                addToCart(idProducto);
+                console.log(`Producto ${idProducto} agregado al carrito`);
+            } else {
+                console.error("ID del producto no válido.");
+            }
+        }
+    });
+}
+
+export function registrarEventosDetallesProducto() {
+    document.addEventListener("click", (event) => {
+
+        const addCartButton = event.target.closest(".btn-add-cart");
+
+        registrarEventosTabs();
+
+        // Manejar clic en botón "Añadir al carrito" en detalles del producto
+        if (addCartButton) {
+            const idProducto = parseInt(addCartButton.dataset.id, 10);
+            if (!isNaN(idProducto)) {
+                addToCart(idProducto);
+            } else {
+                console.error("ID del producto no válido.");
+            }
+        }
+    });
+}
+
+export function registrarEventosTabs() {
+    document.addEventListener("click", (event) => {
+        const tabButton = event.target.closest(".tab-link");
+
+        if (tabButton) {
+            const tabId = tabButton.dataset.tab;
+            if (tabId) {
+                mostrarTab(tabId);
+            } else {
+                console.error("ID de pestaña no válido.");
+            }
+        }
+    });
+}
 
 // Función para manejar el cambio de pestañas (descripción y características)
 export function mostrarTab(tabId) {
@@ -81,8 +146,10 @@ export function mostrarTab(tabId) {
     buttons.forEach(btn => btn.classList.remove('active'));
 
     document.getElementById(tabId).classList.add('active');
-    document.querySelector(`.tab-link[onclick="mostrarTab('${tabId}')"]`).classList.add('active');
+    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
 }
+
+
 
 // Mostrar la descripción del producto
 export function mostrarDescripcion(producto) {
@@ -97,25 +164,27 @@ export function mostrarCaracteristicas(producto) {
     setInnerHTML("caracteristicas", caracteristicas);
 }
 
+
+
 // Plantilla HTML para una tarjeta de producto
 function productoHTML(producto) {
-    const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
-        ? `../assets/images/${producto.imagen}` 
+    const imagenProducto = producto.imagen && producto.imagen.trim() !== ""
+        ? `../assets/images/${producto.imagen}`
         : "../assets/images/default-product.jpg"; // Imagen genérica
-    
-    const botonCarrito = producto.stock > 0 
-        ? `<button class="btn-action" onclick="agregarAlCarrito(${producto.id}, event)">Añadir al Carrito</button>`
+
+    const botonCarrito = producto.stock > 0
+        ? `<button class="btn-action btn-add-cart" data-id="${producto.id}">Añadir al Carrito</button>`
         : `<p class="sin-stock">Sin Stock</p>`;
 
     return `
-        <div class="producto" onclick="verProducto(${producto.id})">
+        <div class="producto card-producto" data-id="${producto.id}">
             <div class="producto-imagen">
                 <img src="${imagenProducto}" alt="${producto.nombre}" onerror="this.src='../assets/images/default-product.jpg'">
             </div>
             <div class="producto-info">
                 <h3>${producto.nombre}</h3>
                 <p class="texto-precio"><strong>Precio:</strong> $${producto.precio.toFixed(2)}</p>
-                <div class="acciones-producto" onclick="event.stopPropagation();">
+                <div class="acciones-producto">
                     ${botonCarrito}
                 </div>
             </div>
@@ -124,12 +193,12 @@ function productoHTML(producto) {
 }
 
 function productoDetalleHTML(producto) {
-    const imagenProducto = producto.imagen && producto.imagen.trim() !== "" 
-        ? `../assets/images/${producto.imagen}` 
+    const imagenProducto = producto.imagen && producto.imagen.trim() !== ""
+        ? `../assets/images/${producto.imagen}`
         : "../assets/images/default-product.jpg";
 
-    const botonCarrito = producto.stock > 0 
-        ? `<button class="btn-action" onclick="agregarAlCarrito(${producto.id})">Añadir al Carrito</button>`
+    const botonCarrito = producto.stock > 0
+        ? `<button class="btn-action btn-add-cart" data-id="${producto.id}">Añadir al Carrito</button>`
         : `<p class="sin-stock">Sin Stock</p>`;
 
     return `

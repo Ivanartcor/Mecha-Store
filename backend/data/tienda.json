@@ -29,7 +29,13 @@
             "id": 6,
             "nombre": "Consumibles de Combate",
             "descripcion": "Provisiones necesarias para largas campañas y operaciones de campo."
+        },
+        {
+            "id": 7,
+            "nombre": "Drones y Sistemas Autónomos",
+            "descripcion": "Sistemas autónomos diseñados para soporte táctico, reconocimiento y asistencia en combate."
         }
+        
     ],
 
     "productos": [
@@ -56,7 +62,7 @@
             "descripcion_corta": "Mecha ágil con lanzamisiles.",
             "descripcion_larga": "El Guerrero Valkyria X destaca por su velocidad y capacidad aérea. Equipado con lanzamisiles guiados y un sistema de vuelo avanzado, es ideal para misiones de intercepción y combate aéreo.",
             "precio": 4500,
-            "destacado": true,
+            "destacado": false,
             "id_categoria": 1,
             "stock": 0,
             "imagen": "mecha_valkyria_x.jpg",
@@ -73,7 +79,7 @@
             "descripcion_corta": "Arma de largo alcance de máxima potencia.",
             "descripcion_larga": "El Cañón Destructor NX es un arma diseñada para operaciones a larga distancia. Su capacidad de proyectiles de plasma lo convierte en un arma devastadora contra estructuras y objetivos pesados.",
             "precio": 3200,
-            "destacado": true,
+            "destacado": false,
             "id_categoria": 2,
             "stock": 5,
             "imagen": "arma_canon_destructor.jpg",
@@ -109,7 +115,7 @@
             "precio": 2800,
             "destacado": false,
             "id_categoria": 3,
-            "stock": 4,
+            "stock": 0,
             "imagen": "modulo_escudo_aegis.jpg",
             "caracteristicas": {
                 "tipo": "Defensa Activa",
@@ -127,7 +133,7 @@
             "destacado": true,
             "id_categoria": 5,
             "stock": 3,
-            "imagen": "energia_reactor_zcore.jpg",
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/nucleo-sobrecargado.jpg",
             "caracteristicas": {
                 "tipo": "Reactor de Fusión",
                 "potencia_maxima": "50 GW",
@@ -158,7 +164,7 @@
             "descripcion_corta": "Mecha fortaleza con capacidades defensivas avanzadas.",
             "descripcion_larga": "El Raijin-4590 es un mecha de clase pesada diseñado para defensa estratégica. Equipado con patas retráctiles que aumentan su estabilidad y un sistema de escudos integrados, este mecha puede resistir ataques masivos mientras proporciona fuego de cobertura con sus cañones duales. Ideal para puntos críticos en el campo de batalla, ofreciendo un balance perfecto entre ofensiva y defensa.",
             "precio": 450000,
-            "destacado": true,
+            "destacado": false,
             "id_categoria": 1,
             "stock": 2,
             "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/raijin.jpg",
@@ -182,7 +188,6 @@
                 "compatibilidad_modular": "Compatible con módulos de defensa y ataque de nivel avanzado"
             }
         },
-
         {
             "id": 9,
             "nombre": "Cañón Ácido MK3",
@@ -210,7 +215,538 @@
                     "Protección contra fugas"
                 ]
             }
+        },
+        {
+            "id": 10,
+            "nombre": "Campo de Energía Estático MK-V",
+            "descripcion_corta": "Defensa circular de energía estática.",
+            "descripcion_larga": "El Campo de Energía Estático MK-V genera un escudo circular impenetrable que protege a las unidades dentro de su radio. Diseñado para soportar ataques de alta intensidad, este módulo defensivo es perfecto para establecer puntos de control seguros en el campo de batalla. El campo se alimenta de un núcleo autónomo que asegura una duración prolongada sin necesidad de recarga constante.",
+            "precio": 3800,
+            "destacado": false,
+            "id_categoria": 3,
+            "stock": 4,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/campo-estatico.gif",
+            "caracteristicas": {
+                "peso": "2 toneladas",
+                "radio_de_proteccion": "10 metros",
+                "duracion_maxima": "120 minutos",
+                "tipo_de_energia": "Campo de energía estática",
+                "resistencia": "Alta (resiste impactos de nivel 7)",
+                "tiempo_de_activacion": "1.5 segundos",
+                "material": "Revestimiento de nanocerámica resistente a pulsos EMP",
+                "modo_de_despliegue": "Automático o manual"
+            }
+        },
+        {
+            "id": 11,
+            "nombre": "Escudo de Plasma MK3",
+            "descripcion_corta": "Escudo montable de plasma de alta resistencia.",
+            "descripcion_larga": "El Escudo de Plasma MK3 es una unidad defensiva avanzada que puede ser montada directamente en los brazos de un mecha. Diseñado para disipar impactos de alta energía y bloquear ataques de proyectiles, este escudo utiliza plasma estabilizado para ofrecer protección dinámica y adaptable en combate. Su diseño ergonómico permite al mecha mantener la movilidad mientras utiliza el escudo como defensa activa.",
+            "precio": 4500,
+            "destacado": true,
+            "id_categoria": 3,
+            "stock": 6,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/escudo-plasma-MK3.gif",
+            "caracteristicas": {
+                "peso": "1.2 toneladas",
+                "tamaño": "3x3 metros",
+                "potencia_de_bloqueo": "Alta (resiste ataques de nivel 8)",
+                "duracion_maxima": "90 minutos continuos",
+                "tipo_de_energia": "Plasma estabilizado",
+                "tiempo_de_recarga": "5 minutos",
+                "compatibilidad": "Modelos de mecha estándar",
+                "sistemas_adicionales": [
+                    "Disipación de energía térmica",
+                    "Modo de absorción energética",
+                    "Pantalla holográfica de estado",
+                    "Anclaje magnético ajustable"
+                ],
+                "resistencia_a_emp": "Alta",
+                "control": "Interfaz integrada con el sistema del mecha"
+            }
+        },
+        {
+            "id": 12,
+            "nombre": "Dron de Apoyo Oculus",
+            "descripcion_corta": "Dron autónomo para soporte en combate.",
+            "descripcion_larga": "El Dron de Apoyo Oculus es un sistema autónomo diseñado para asistir en combate y operaciones estratégicas. Equipado con módulos de reparación, armamento ligero y sensores avanzados, este dron es un compañero indispensable para misiones de alto riesgo. Su diseño compacto y movilidad aérea lo hacen ideal para actuar en el frente de batalla, proporcionando soporte táctico y aumentando la efectividad de las unidades principales.",
+            "precio": 7500,
+            "destacado": false,
+            "id_categoria": 7,
+            "stock": 4,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/dron-apoyo.jpg",
+            "caracteristicas": {
+                "peso": "150 kg",
+                "autonomia": "200 dias",
+                "velocidad_maxima": "120 km/h",
+                "capacidad_de_carga": "50 kg",
+                "modulos_disponibles": [
+                    "Reparación de mechas aliados",
+                    "Armamento ligero (ametralladora láser)",
+                    "Lanzador de granadas de humo",
+                    "Sensores avanzados de detección"
+                ],
+                "resistencia": "Blindaje ligero con resistencia a impactos de nivel 4",
+                "tipo_de_energia": "Baterías de fusión compacta",
+                "compatibilidad": "Soporte para todos los modelos de mechas",
+                "sistemas_adicionales": [
+                    "Piloto automático con IA",
+                    "Interfaz de control remoto",
+                    "Modo de sigilo operativo",
+                    "Cámara térmica y visión nocturna"
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "nombre": "Juggernaut MK-I",
+            "descripcion_corta": "Mecha cuadrúpedo ligero con armamento versátil.",
+            "descripcion_larga": "El Juggernaut MK-I es un mecha cuadrúpedo desarrollado para misiones de reconocimiento y combate ligero. A pesar de su apariencia y funcionalidades avanzadas, es conocido como un 'ataúd andante' debido a su débil blindaje y vulnerabilidad en combate prolongado. Equipado con un cañón de ánima lisa de 57 mm y opciones de armamento secundario, como ametralladoras de 12.7 mm y cuchillas de alta frecuencia, este mecha está diseñado para priorizar la movilidad sobre la resistencia. Ideal para misiones rápidas y ataques sorpresivos, pero no recomendado para enfrentamientos directos prolongados.",
+            "precio": 3000,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 5,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/juggernaut-MK1.jpg",
+            "caracteristicas": {
+                "peso": "10 toneladas",
+                "altura": "2.1 m",
+                "sistema_de_propulsion": "Sistema de marcha cuadrúpedo alimentado por celdas de energía",
+                "tripulacion": "1 piloto",
+                "armamento_principal": "Cañón de ánima lisa de 57 mm",
+                "armamento_secundario": [
+                    "2× Anclajes de alambre",
+                    "Sub-brazos de agarre con opciones de:",
+                    "2× Ametralladoras de 12.7 mm",
+                    "2× Cuchillas de alta frecuencia"
+                ],
+                "velocidad_maxima": "60 km/h",
+                "movilidad": "Capacidad de maniobra vertical y detección de enemigos terrestres",
+                "blindaje": "Aleación de aluminio ligero"
+            }
+        },
+        {
+            "id": 14,
+            "nombre": "Juggernaut MK-II",
+            "descripcion_corta": "Mecha cuadrúpedo mejorado con mayor blindaje y armamento.",
+            "descripcion_larga": "El Juggernaut MK-II es una versión mejorada del 'ataúd andante' original, el MK-I. Diseñado para misiones de combate ligero con mayor resistencia, el MK-II incorpora un blindaje reforzado y mejoras en su sistema de propulsión, permitiendo una mayor velocidad y maniobrabilidad. Aunque sigue siendo vulnerable en enfrentamientos prolongados, el MK-II ofrece una mejor protección y más potencia de fuego, convirtiéndolo en una opción más confiable para misiones tácticas y de reconocimiento.",
+            "precio": 4000,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 4,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/juggernaut-MK2.jpg",
+            "caracteristicas": {
+                "peso": "12 toneladas",
+                "altura": "2.3 m",
+                "sistema_de_propulsion": "Sistema de marcha cuadrúpedo optimizado con celdas de energía avanzada",
+                "tripulacion": "1 piloto",
+                "armamento_principal": "Cañón de ánima lisa de 57 mm mejorado",
+                "armamento_secundario": [
+                    "2× Anclajes de alambre reforzados",
+                    "Sub-brazos de agarre con opciones de:",
+                    "2× Ametralladoras de 12.7 mm",
+                    "2× Cuchillas de alta frecuencia"
+                ],
+                "velocidad_maxima": "70 km/h",
+                "movilidad": "Capacidad de maniobra vertical avanzada y detección de enemigos terrestres",
+                "blindaje": "Aleación de titanio-aluminio ligero, resistente a impactos medios"
+            }
+        },
+        {
+            "id": 15,
+            "nombre": "Juggernaut MK-III",
+            "descripcion_corta": "Mecha cuadrúpedo avanzado con modo berserker.",
+            "descripcion_larga": "El Juggernaut MK-III representa una evolución drástica en la serie Juggernaut. Este modelo combina un diseño cuadrúpedo altamente estable con la capacidad de transformarse en un modo berserker bipedal, incrementando drásticamente su velocidad y capacidad ofensiva. El modo berserker exige una alta carga mental al piloto, ya que todas las funciones del mecha se vuelven más exigentes para maximizar su eficiencia en combate. Con un blindaje de última generación y un sistema de armas mejorado, el MK-III es un arma versátil y letal en el campo de batalla.",
+            "precio": 80000,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 3,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/juggernaut-MK3.jpg",
+            "caracteristicas": {
+                "peso": "14 toneladas",
+                "altura": "3.5 m (modo cuadrúpedo), 5.2 m (modo bipedal)",
+                "sistema_de_propulsion": "Sistema híbrido con propulsores auxiliares para maniobras verticales",
+                "tripulacion": "1 piloto (alta demanda cognitiva en modo berserker)",
+                "armamento_principal": "Cañón de rail magnético de 75 mm",
+                "armamento_secundario": [
+                    "4× Lanzacohetes guiados",
+                    "Sub-brazos de agarre con sierras de plasma de alta frecuencia",
+                    "Escudo desplegable de energía",
+                    "2× Torres automáticas de defensa"
+                ],
+                "velocidad_maxima": "90 km/h (modo cuadrúpedo), 120 km/h (modo bipedal)",
+                "movilidad": "Transformación rápida entre cuadrúpedo y bipedal en 3 segundos",
+                "blindaje": "Aleación de titanio-revestido con polímeros energéticos, resistente a armas pesadas",
+                "modo_especial": "Modo berserker: aumenta un 50% la potencia ofensiva y velocidad, pero exige un alto nivel de concentración del piloto"
+            }
         }
+        ,{
+            "id": 16,
+            "nombre": "Leviathan",
+            "descripcion_corta": "Mecha hexápodo pesado con tecnología avanzada y armamento devastador.",
+            "descripcion_larga": "El Leviathan es un coloso de seis patas diseñado para el combate de largo alcance, apertura de frentes y operaciones tácticas pesadas. Gracias a su sistema avanzado de estabilización, puede operar en terrenos irregulares con facilidad. Su arsenal incluye armas de destrucción masiva y tecnología de última generación que lo convierten en un pilar de cualquier fuerza armada. Aunque su tamaño y peso lo hacen menos ágil que otros mechas, su capacidad de destrucción compensa con creces esta limitación.",
+            "precio": 950000,
+            "destacado": true,
+            "id_categoria": 1,
+            "stock": 1,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/leviathan.jpg",
+            "caracteristicas": {
+                "peso": "180 toneladas",
+                "altura": "12 metros",
+                "sistema_de_propulsion": "Hexápodo con estabilización avanzada y propulsores auxiliares",
+                "armamento_principal": "Cañón de plasma de largo alcance",
+                "armamento_secundario": [
+                    "2× Lanzacohetes de crucero",
+                    "Módulos de artillería rotativa de 120 mm",
+                    "Sistema de misiles de interceptación aérea",
+                    "Torretas automáticas de defensa lateral"
+                ],
+                "sistemas_defensivos": [
+                    "Escudo de energía cinética avanzada",
+                    "Blindaje compuesto de grafeno reforzado",
+                    "Sistema de camuflaje térmico para operaciones tácticas"
+                ],
+                "tecnologia_especial": [
+                    "Generador de campo electromagnético para anular dispositivos enemigos",
+                    "Inteligencia artificial táctica para asistir en combates complejos"
+                ],
+                "velocidad_maxima": "30 km/h",
+                "movilidad": "Capaz de atravesar terrenos irregulares gracias a su diseño hexápodo",
+                "energia": "Reactor de fusión Z-Core de alta capacidad"
+            }
+        },
+        {
+            "id": 17,
+            "nombre": "Pulsar",
+            "descripcion_corta": "Arma pesada de pulsos de energía concentrada.",
+            "descripcion_larga": "El Pulsar es un arma de energía avanzada diseñada para maximizar el daño a larga distancia con disparos de pulsos altamente concentrados. Su diseño modular permite su instalación en mechas y plataformas de combate. Es ideal para deshabilitar objetivos blindados y sistemas electrónicos enemigos. Su capacidad para emitir pulsos de alta frecuencia lo convierte en una herramienta devastadora contra fuerzas mecanizadas y fortalezas enemigas.",
+            "precio": 3800,
+            "destacado": true,
+            "id_categoria": 2,
+            "stock": 10,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/pulsar.jpg",
+            "caracteristicas": {
+                "peso": "15 toneladas",
+                "alcance_efectivo": "5 km",
+                "potencia": "Alta (capaz de atravesar blindajes reforzados)",
+                "frecuencia_pulsos": "3 pulsos por segundo",
+                "modos_de_disparo": [
+                    "Pulsos continuos",
+                    "Pulsos cargados (mayor impacto)",
+                    "Disparo en ráfaga"
+                ],
+                "energia": "Reactor auxiliar de energía dedicado",
+                "tiempo_de_carga": "2 segundos para disparos cargados",
+                "sistemas_adicionales": [
+                    "Enfriamiento activo integrado",
+                    "Estabilización giroscópica para precisión",
+                    "Sistema de rastreo automático para objetivos móviles"
+                ],
+                "compatibilidad": "Montura universal para mechas de clase media y pesada"
+            }
+        },
+        {
+            "id": 18,
+            "nombre": "Láser Plasma 40MW34X",
+            "descripcion_corta": "Arma de rayo láser continuo con opción de sobrecarga.",
+            "descripcion_larga": "El Láser Plasma es un arma revolucionaria que emite un rayo continuo de plasma altamente concentrado, capaz de atravesar blindajes y estructuras con precisión quirúrgica. Su función de sobrecarga permite aumentar temporalmente el daño infligido, aunque requiere cuidado debido al sobrecalentamiento que genera. Ideal para combates prolongados contra objetivos mecanizados y estructuras fortificadas.",
+            "precio": 4200,
+            "destacado": true,
+            "id_categoria": 2,
+            "stock": 8,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/laser-plasma.jpg",
+            "caracteristicas": {
+                "peso": "12 toneladas",
+                "alcance": "3 km",
+                "modo_disparo": "Rayo continuo",
+                "funcion_especial": "Sobrecarga (50% más daño durante 10 segundos)",
+                "sistema_seguridad": "Enfriamiento automático tras sobrecarga",
+                "energía_requerida": "Conexión a reactor principal"
+            }
+        },
+        {
+            "id": 19,
+            "nombre": "Sable Paladium",
+            "descripcion_corta": "Sable retráctil de aleación de paladio integrado en el brazo del mecha.",
+            "descripcion_larga": "El Sable Paladium es una obra maestra de la ingeniería armamentística. Construido con una aleación de paladio, ofrece una resistencia excepcional y un filo afilado diseñado para atravesar incluso los blindajes más robustos. Este sable retráctil se integra directamente en el brazo del mecha, permitiendo rápidos despliegues durante el combate cuerpo a cuerpo. Su diseño avanzado garantiza durabilidad y una gran capacidad destructiva en escenarios de batalla intensa.",
+            "precio": 3500,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 10,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/sable-paladium.jpg",
+            "caracteristicas": {
+                "material": "Aleación de paladio",
+                "longitud": "3 metros (retraído: 50 cm)",
+                "modo_despliegue": "Retráctil, integrado en el brazo",
+                "peso": "8 toneladas",
+                "resistencia": "Altamente resistente a impactos y desgaste",
+                "uso": "Combate cuerpo a cuerpo"
+            }
+        },
+        {
+            "id": 20,
+            "nombre": "Escopeta Cinética",
+            "descripcion_corta": "Escopeta pesada de corto alcance integrada en el mecha.",
+            "descripcion_larga": "La Escopeta Cinética es un arma diseñada para combates a corta distancia, ideal para desactivar objetivos con gran rapidez. Este armamento utiliza munición de alta densidad para generar un impacto devastador con cada disparo. Aunque su munición es limitada, cada carga está optimizada para infligir un daño masivo, incluso contra blindajes gruesos. Su integración en el mecha permite estabilidad y precisión durante los disparos.",
+            "precio": 3000,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 15,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/escopeta-cinetica.jpg",
+            "caracteristicas": {
+                "tipo": "Arma pesada de corto alcance",
+                "municion": "Proyectiles cinéticos de alta densidad",
+                "capacidad_carga": "10 disparos por recarga",
+                "alcance_maximo": "500 metros",
+                "peso": "6 toneladas",
+                "potencia": "Extrema a corta distancia",
+                "uso": "Integración en el brazo o el torso del mecha"
+            }
+        },
+        {
+            "id": 21,
+            "nombre": "Escopeta de Pulsos",
+            "descripcion_corta": "Escopeta de energía basada en pulsos para combates de corto alcance.",
+            "descripcion_larga": "La Escopeta de Pulsos utiliza tecnología avanzada para generar disparos de energía concentrada en forma de pulsos. Ideal para combates a corta distancia, su principal ventaja es que no necesita munición, ya que funciona con un reactor de energía integrado. Sin embargo, su uso intensivo puede provocar sobrecalentamiento, requiriendo intervalos de enfriamiento para continuar operando. Su diseño compacto permite una fácil integración en cualquier tipo de mecha, ofreciendo un balance perfecto entre potencia y sostenibilidad.",
+            "precio": 3500,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 10,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/escopeta-pulsos.jpg",
+            "caracteristicas": {
+                "tipo": "Escopeta de energía de corto alcance",
+                "municion": "Infinita (reactor de energía integrado)",
+                "rango_efectivo": "400 metros",
+                "sobrecalentamiento": "Requiere enfriamiento tras uso prolongado",
+                "peso": "5 toneladas",
+                "potencia": "Alta",
+                "uso": "Integración en el brazo del mecha",
+                "enfriamiento": "Automático, tiempo estimado: 10 segundos"
+            }
+        },
+        {
+            "id": 22,
+            "nombre": "Granada Corrosiva",
+            "descripcion_corta": "Granada táctica con agente corrosivo de alta potencia.",
+            "descripcion_larga": "La Granada Corrosiva es una herramienta táctica diseñada para desactivar enemigos mecanizados y debilitar estructuras. Al detonar, libera un agente químico avanzado que se adhiere a las superficies y comienza a corroerlas rápidamente, causando daño continuo. Su radio de acción está optimizado para maximizar el daño en zonas críticas de blindaje y sistemas internos de los objetivos. Es especialmente útil en operaciones de asedio o para ganar ventaja estratégica en combates prolongados.",
+            "precio": 1500,
+            "destacado": false,
+            "id_categoria": 6,
+            "stock": 25,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/granada-corrosiva.jpg",
+            "caracteristicas": {
+                "tipo": "Explosivo químico",
+                "radio_de_accion": "10 metros",
+                "daño": "Progresivo a blindajes y componentes electrónicos",
+                "material_del_cuerpo": "Aleación reforzada para evitar detonación accidental",
+                "peso": "3 kg",
+                "tiempo_de_detonacion": "3 segundos tras activación",
+                "efecto": "Corrosión avanzada en blindajes y estructuras metálicas",
+                "uso": "Ideal para ataques a corto y mediano alcance"
+            }
+            
+        },
+        {
+            "id": 23,
+            "nombre": "Granada PEM",
+            "descripcion_corta": "Granada táctica que desactiva sistemas electrónicos con un pulso electromagnético.",
+            "descripcion_larga": "La Granada PEM (Pulso Electromagnético) es una herramienta táctica ideal para desactivar temporalmente sistemas electrónicos y mecánicos enemigos. Al detonar, emite un poderoso pulso electromagnético que interrumpe comunicaciones, desactiva sensores y anula sistemas de armamento automatizado. Es especialmente efectiva contra enemigos mecanizados, drones y sistemas de defensa automatizados, proporcionando una ventaja estratégica crucial en el campo de batalla.",
+            "precio": 2000,
+            "destacado": false,
+            "id_categoria": 6,
+            "stock": 30,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/granada-pem.jpg",
+            "caracteristicas": {
+                "tipo": "Explosivo electromagnético",
+                "radio_de_accion": "15 metros",
+                "efecto": "Desactivación temporal de sistemas electrónicos",
+                "duracion": "10 segundos de interferencia",
+                "peso": "2.5 kg",
+                "material_del_cuerpo": "Compuesto aislante para proteger al usuario",
+                "tiempo_de_detonacion": "4 segundos tras activación",
+                "uso": "Ideal para combates contra unidades mecanizadas y sistemas automatizados"
+            }
+        },
+        {
+            "id": 24,
+            "nombre": "Minas Antimechas",
+            "descripcion_corta": "Explosivos ocultos diseñados para neutralizar mechas enemigos.",
+            "descripcion_larga": "Las Minas Antimechas están diseñadas para infligir daño crítico a unidades mecanizadas de gran tamaño. Equipadas con sensores de presión avanzada y detonación dirigida, estas minas pueden neutralizar las extremidades y sistemas críticos de mechas enemigos. Su diseño compacto permite una instalación rápida y efectiva, siendo ideales para emboscadas, defensas estratégicas y operaciones de contención. Fabricadas con materiales reforzados, garantizan un rendimiento óptimo incluso en las condiciones más extremas.",
+            "precio": 5000,
+            "destacado": false,
+            "id_categoria": 6,
+            "stock": 50,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/minas.jpg",
+            "caracteristicas": {
+                "tipo": "Explosivo táctico",
+                "radio_de_detonacion": "5 metros",
+                "potencia": "Alta, capaz de incapacitar extremidades de mechas",
+                "activacion": "Sensor de presión",
+                "peso": "15 kg",
+                "material": "Aleación reforzada para resistir desactivaciones",
+                "durabilidad": "Resistente a condiciones extremas (calor, frío, humedad)",
+                "uso": "Defensa de perímetro y emboscadas contra mechas pesados"
+            }
+        },
+        {
+            "id": 25,
+            "nombre": "Módulo Gravitacional 021",
+            "descripcion_corta": "Sistema avanzado de vuelo para mechas.",
+            "descripcion_larga": "El Módulo de Alas Mecha transforma cualquier unidad mecanizada en una máquina voladora altamente maniobrable. Estas alas están fabricadas con materiales ultraligeros pero extremadamente resistentes, diseñadas para soportar condiciones extremas y combates aéreos. Equipadas con propulsores de última generación y sistemas de estabilización automática, permiten un vuelo ágil y eficiente, ya sea para ataques estratégicos o para evadir amenazas terrestres. Este módulo es indispensable para misiones de reconocimiento, transporte rápido y combate aéreo.",
+            "precio": 15000,
+            "destacado": false,
+            "id_categoria": 4,
+            "stock": 5,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/modulo-alas.jpg",
+            "caracteristicas": {
+                "tipo": "Módulo de vuelo",
+                "material": "Aleación de titanio reforzado",
+                "propulsores": "Motores de plasma integrados",
+                "velocidad_maxima": "1200 km/h",
+                "autonomia": "3 horas de vuelo continuo",
+                "peso": "2 toneladas",
+                "compatibilidad": "Universal con sistemas de montaje estándar",
+                "sistemas_adicionales": "Estabilización automática y control adaptativo",
+                "resistencia": "Alta resistencia a impactos y entornos extremos"
+            }
+        },
+        {
+            "id": 26,
+            "nombre": "Célula de Energía XII",
+            "descripcion_corta": "Fuente compacta y eficiente de energía.",
+            "descripcion_larga": "La Célula de Energía XII es una fuente portátil de energía diseñada para alimentar sistemas de mechas, módulos avanzados y armamento especializado. Su diseño compacto permite su instalación en prácticamente cualquier unidad mecanizada, proporcionando una potencia constante y eficiente. Fabricada con tecnología de fusión miniaturizada, esta célula garantiza una duración prolongada y una capacidad de recarga rápida. Ideal para misiones prolongadas en las que el suministro de energía es crítico.",
+            "precio": 3500,
+            "destacado": false,
+            "id_categoria": 5,
+            "stock": 10,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/celula-energia.jpg",
+            "caracteristicas": {
+                "tipo": "Fuente de energía portátil",
+                "potencia_maxima": "15 GW",
+                "autonomia": "72 horas continuas",
+                "peso": "500 kg",
+                "tiempo_recarga": "2 horas",
+                "tecnologia": "Fusión miniaturizada",
+                "resistencia": "Alta tolerancia a impactos y temperaturas extremas",
+                "compatibilidad": "Sistemas universales de mechas y módulos"
+            }
+        },
+        {
+            "id": 27,
+            "nombre": "Módulo de Pierna X2",
+            "descripcion_corta": "Mejora la movilidad y estabilidad de cualquier mecha.",
+            "descripcion_larga": "El Módulo de Pierna X2 está diseñado para optimizar la movilidad y el rendimiento en combate de mechas de todos los tamaños. Este módulo incorpora tecnología de servoestabilidad avanzada, lo que permite movimientos más precisos y una mayor capacidad de carga. Además, incluye sistemas de absorción de impacto que mejoran la resistencia en terrenos difíciles y durante ataques enemigos. Es una opción indispensable para pilotos que buscan una ventaja táctica en el campo de batalla.",
+            "precio": 4200,
+            "destacado": false,
+            "id_categoria": 4,
+            "stock": 15,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/modulo-pierna.jpg",
+            "caracteristicas": {
+                "tipo": "Mejora de movilidad",
+                "peso_soportado": "Hasta 120 toneladas",
+                "tecnologia": "Servoestabilidad avanzada",
+                "absorcion_impacto": "Alta",
+                "resistencia_terrenos": "Dificultad extrema",
+                "compatibilidad": "Mechas ligeros, medios y pesados",
+                "eficiencia_energia": "Optimizada para bajo consumo",
+                "durabilidad": "Reforzada para combates intensos"
+            }
+        },
+        {
+            "id": 28,
+            "nombre": "Campo Térmico Defensivo",
+            "descripcion_corta": "Crea un campo de calor extremo para desviar proyectiles enemigos.",
+            "descripcion_larga": "El Campo Térmico Defensivo es un sistema avanzado que genera una barrera de calor extremo alrededor del mecha, diseñada para desviar proyectiles y neutralizar ataques enemigos. Este módulo es esencial para pilotos que enfrentan entornos hostiles, ya que combina tecnología de termorresistencia con sensores adaptativos para proteger contra múltiples tipos de amenazas. Su diseño compacto asegura compatibilidad con una amplia gama de mechas.",
+            "precio": 3800,
+            "destacado": false,
+            "id_categoria": 3,
+            "stock": 10,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/campo-termico.jpg",
+            "caracteristicas": {
+                "tipo": "Defensa térmica",
+                "radio_efectivo": "15 metros",
+                "temperatura_maxima": "3000 °C",
+                "resistencia": "Proyectiles convencionales y algunos tipos de energía",
+                "duracion_campo": "10 minutos por activación",
+                "recarga": "5 minutos",
+                "peso": "8 toneladas",
+                "compatibilidad": "Todos los modelos de mechas"
+            }
+        },
+        {
+            "id": 29,
+            "nombre": "Scorpion-X9",
+            "descripcion_corta": "Un mecha con tecnología de vanguardia.",
+            "descripcion_larga": "El Scorpion-X9 es un mecha de élite diseñado para los pilotos más exigentes. Con una combinación de lujo, tecnología avanzada y versatilidad, este modelo es capaz de volar, realizar maniobras complejas y adaptarse a cualquier entorno de combate. Su diseño elegante y aerodinámico no solo impresiona en el campo de batalla, sino que también maximiza su eficiencia. Equipado con los sistemas más modernos, el Scorpion-X9 ofrece una experiencia de pilotaje incomparable.",
+            "precio": 1950000,
+            "destacado": false,
+            "id_categoria": 1,
+            "stock": 0,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/scorpion.jpg",
+            "caracteristicas": {
+                "tipo": "Mecha de lujo y combate",
+                "peso": "50 toneladas",
+                "altura": "20 metros",
+                "velocidad_maxima": "300 km/h (en tierra), Mach 1 (en vuelo)",
+                "blindaje": "Nano-aleación resistente a energía y proyectiles",
+                "sistemas_adicionales": [
+                    "Cañones de plasma duales",
+                    "Módulo de vuelo avanzado",
+                    "Sistema de camuflaje óptico",
+                    "Cabina de lujo con inteligencia artificial asistida"
+                ],
+                "energia": "Reactor de fusión Z-Core Plus",
+                "autonomia": "72 horas continuas",
+                "capacidad_de_carga": "10 toneladas adicionales"
+            }
+        },
+        {
+            "id": 30,
+            "nombre": "Alligator MK-II-O3",
+            "descripcion_corta": "Mecha industrial de tamaño medio con escudo físico integrado.",
+            "descripcion_larga": "El Alligator MK-II es un mecha de tamaño medio diseñado con un enfoque industrial y capacidades defensivas avanzadas. Equipado con un escudo físico integrado en uno de sus brazos, este modelo puede absorber impactos directos mientras se mantiene funcional en situaciones de combate y trabajos pesados. Su diseño robusto lo hace ideal tanto para operaciones en campo de batalla como para tareas industriales exigentes.",
+            "precio": 350000,
+            "destacado": true,
+            "id_categoria": 1,
+            "stock": 0,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/alligator.jpg",
+            "caracteristicas": {
+                "tipo": "Mecha industrial y de combate medio",
+                "peso": "40 toneladas",
+                "altura": "15 metros",
+                "velocidad_maxima": "120 km/h",
+                "blindaje": "Aleación industrial reforzada",
+                "sistemas_adicionales": [
+                    "Escudo físico integrado (brazo izquierdo)",
+                    "Grúa extensible multifunción (opcional)",
+                    "Conectores para herramientas industriales"
+                ],
+                "energia": "Reactor híbrido de fusión-inducción",
+                "autonomia": "48 horas continuas",
+                "capacidad_de_carga": "5 toneladas adicionales",
+                "aplicaciones": [
+                    "Defensa en zonas industriales",
+                    "Reparaciones en campo de batalla",
+                    "Construcción y transporte de materiales pesados"
+                ]
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
         
         
     ]

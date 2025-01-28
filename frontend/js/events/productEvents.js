@@ -76,11 +76,11 @@ export function verProducto(idProducto) {
 
 
 export function registrarEventosProductos() {
-    document.addEventListener("click", (event) => {
+    document.querySelector(".productos-grid")?.addEventListener("click", (event) => {
         const productoCard = event.target.closest(".card-producto");
         const addCartButton = event.target.closest(".btn-add-cart");
 
-        // Manejar clic en la tarjeta del producto
+        // Manejar clic en la tarjeta del producto para redirigir a los detalles
         if (productoCard && !addCartButton) {
             const idProducto = parseInt(productoCard.dataset.id, 10);
             if (!isNaN(idProducto)) {
@@ -101,26 +101,58 @@ export function registrarEventosProductos() {
             }
         }
     });
-}
 
-export function registrarEventosDetallesProducto() {
-    document.addEventListener("click", (event) => {
-
+    // Delegación de eventos para productos vistos recientemente
+    document.querySelector("#productosVistos")?.addEventListener("click", (event) => {
+        const productoCard = event.target.closest(".card-producto");
         const addCartButton = event.target.closest(".btn-add-cart");
 
-        registrarEventosTabs();
-
-        // Manejar clic en botón "Añadir al carrito" en detalles del producto
+        // Manejar clic en el botón de agregar al carrito
         if (addCartButton) {
             const idProducto = parseInt(addCartButton.dataset.id, 10);
             if (!isNaN(idProducto)) {
                 addToCart(idProducto);
+                console.log(`Producto ${idProducto} agregado al carrito desde productos vistos.`);
+                // Evitar que el evento se propague al clic en la tarjeta del producto
+                event.stopPropagation();
+                return;
+            } else {
+                console.error("ID del producto no válido.");
+            }
+        }
+
+        // Manejar clic en la tarjeta del producto para redirigir a los detalles
+        if (productoCard) {
+            const idProducto = parseInt(productoCard.dataset.id, 10);
+            if (!isNaN(idProducto)) {
+                verProducto(idProducto);
             } else {
                 console.error("ID del producto no válido.");
             }
         }
     });
 }
+
+export function registrarEventosDetallesProducto() {
+    document.querySelector("#productoDetalle")?.addEventListener("click", (event) => {
+        const addCartButton = event.target.closest(".btn-add-cart-detail");
+
+        if (addCartButton) {
+            const idProducto = parseInt(addCartButton.dataset.id, 10);
+            const cantidadInput = document.getElementById("cantidad");
+            const cantidad = cantidadInput ? parseInt(cantidadInput.value, 10) : 1;
+
+            if (!isNaN(idProducto) && !isNaN(cantidad) && cantidad > 0) {
+                addToCart(idProducto, cantidad);
+            } else {
+                console.error("Cantidad inválida o ID de producto no válido.");
+            }
+        }
+    });
+
+    registrarEventosTabs();
+}
+
 
 export function registrarEventosTabs() {
     document.addEventListener("click", (event) => {
@@ -167,7 +199,7 @@ export function mostrarCaracteristicas(producto) {
 
 
 // Plantilla HTML para una tarjeta de producto
-function productoHTML(producto) {
+export function productoHTML(producto) {
     const imagenProducto = producto.imagen && producto.imagen.trim() !== ""
         ? `../assets/images/${producto.imagen}`
         : "../assets/images/default-product.jpg"; // Imagen genérica
@@ -198,7 +230,7 @@ function productoDetalleHTML(producto) {
         : "../assets/images/default-product.jpg";
 
     const botonCarrito = producto.stock > 0
-        ? `<button class="btn-action btn-add-cart" data-id="${producto.id}">Añadir al Carrito</button>`
+        ? `<button class="btn-action btn-add-cart-detail" data-id="${producto.id}">Añadir al Carrito</button>`
         : `<p class="sin-stock">Sin Stock</p>`;
 
     return `
@@ -213,7 +245,7 @@ function productoDetalleHTML(producto) {
                 <p>${producto.descripcion_corta}</p>
                 <p>Stock disponible: ${producto.stock}</p>
                 <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" min="1" max="${producto.stock}" value="1">
+                <input type="number" id="cantidad" name="cantidad" min="1" max="${producto.stock}" value="1">
                 <div class="boton-carrito">
                     ${botonCarrito}
                 </div>

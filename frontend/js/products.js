@@ -1,7 +1,7 @@
 //products.js
 
 import { initAuthPage } from "./events/authEvents.js";
-import { mostrarDetallesProducto, registrarEventosTabs, registrarEventosDetallesProducto } from "./events/productEvents.js";
+import { mostrarDetallesProducto, registrarEventosDetallesProducto } from "./events/productEvents.js";
 import { loadHeader } from "./header.js";
 
 
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (idProducto) {
             mostrarDetallesProducto(idProducto);
+            
         }
 
         //window.mostrarTab = mostrarTab;

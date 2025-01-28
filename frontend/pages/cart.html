@@ -1,6 +1,7 @@
 <!-- cart.html -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,45 +14,42 @@
     <link rel="stylesheet" href="../css/card-product.css">
     <link rel="stylesheet" href="../css/cart.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap"
+        rel="stylesheet">
 </head>
 
-<body onload="cargarCarrito()">
+<body>
+
+    <!-- Contenido Principal -->
+    <main class="main-cart">
 
 
-<!-- Encabezado -->
-<header class="header">
-    <h1>Carrito de Compras</h1>
-    <nav>
-        <a href="dashboard.html" class="btn-link">Inicio</a>
-        <a href="categories.html" class="btn-link">Categorías</a>
-        <button id="logoutBtn" class="btn-action">Cerrar Sesión</button>
-    </nav>
-</header>
+        <!-- Sección del Carrito -->
+        <section class="carrito-section">
+            <h2 class="section-title">Tu Carrito</h2>
 
-<!-- Contenido Principal -->
-<main class="main-cart">
+            <!-- Mensajes de Error o Éxito -->
+            <section id="messageContainer" class="message-container"></section>
 
-    <!-- Sección del Carrito -->
-    <section class="carrito-section">
-        <h2 class="section-title">Tu Carrito</h2>
-        <div id="carritoContainer" class="carrito-grid"></div>
-        <p id="totalCompra" class="total-compra"></p>
-        <button id="finalizarCompraBtn" class="btn-action" onclick="finalizarCompra()">Finalizar Compra</button>
-    </section>
+            <div id="carritoContainer" class="carrito-lista">
+                <!-- Aquí se inyectará la lista de productos -->
+            </div>
 
-    <!-- Sección de Productos Vistos Recientemente -->
-    <section class="productos-section">
-        <h2 class="section-title">Productos Vistos Recientemente</h2>
-        <div id="productosVistosCart" class="productos-grid"></div>
-    </section>
+            <p id="totalCompra" class="total-compra"></p>
+            <button id="finalizarCompraBtn" class="btn-action">Finalizar Compra</button>
+        </section>
 
-</main>
+        <!-- Sección de Productos Vistos Recientemente -->
+        <section class="productos-section">
+            <h2 class="section-title">Productos Vistos Recientemente</h2>
+            <div id="productosVistosCart" class="productos-grid"></div>
+        </section>
 
-<!-- Scripts -->
-<script src="../js/auth.js"></script>
-<script src="../js/products.js"></script>
-<script src="../js/cart.js"></script>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/cart.js"></script>
 
 </body>
+
 </html>

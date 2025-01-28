@@ -17,3 +17,21 @@ export function setInnerHTML(elementId, html) {
     const element = document.getElementById(elementId);
     if (element) element.innerHTML = html;
 }
+
+// utils/ui.js
+export function showMessage(message, elementId, type = "success") {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerText = message;
+        element.className = type === "success" ? "message-container message-success" : "message-container message-error";
+    }
+}
+
+export function clearMessage(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerText = "";
+        element.className = "message-container";
+    }
+}
+

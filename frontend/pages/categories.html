@@ -1,3 +1,4 @@
+<!-- categories.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,17 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 
-<body onload="cargarCategorias()">
-
-<!-- Encabezado -->
-<header class="header">
-    <h1>Categorías de Mechas</h1>
-    <nav>
-        <a href="dashboard.html" class="btn-link">Inicio</a>
-        <a href="cart.html" class="btn-link">Carrito</a>
-        <button id="logoutBtn" class="btn-action">Cerrar Sesión</button>
-    </nav>
-</header>
+<body>
 
 <!-- Contenido Principal -->
 <main class="main-categories">
@@ -33,7 +24,7 @@
     <!-- Menú de Selección de Categorías -->
     <section class="selector-section">
         <label for="categorySelect" class="category-label">Selecciona una Categoría:</label>
-        <select id="categorySelect" class="category-select" onchange="mostrarCategoriaSeleccionada()">
+        <select id="categorySelect" class="category-select">
             <option value="">Seleccione una Categoría</option>
         </select>
     </section>
@@ -52,8 +43,7 @@
 </main>
 
 <!-- Scripts -->
-<script src="../js/auth.js"></script>
-<script src="../js/products.js"></script>
+<script type="module" src="../js/categories.js"></script>
 
 </body>
 </html>

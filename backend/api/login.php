@@ -1,4 +1,5 @@
 <?php
+//login.php
 // Configuración de encabezados
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");

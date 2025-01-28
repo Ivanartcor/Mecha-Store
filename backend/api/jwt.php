@@ -1,4 +1,5 @@
 <?php
+//jwt.php
 // Clave secreta para la firma del JWT
 $secret = "clave_super_secreta";
 

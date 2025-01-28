@@ -59,17 +59,17 @@
         {
             "id": 2,
             "nombre": "Guerrero Valkyria X",
-            "descripcion_corta": "Mecha ágil con lanzamisiles.",
-            "descripcion_larga": "El Guerrero Valkyria X destaca por su velocidad y capacidad aérea. Equipado con lanzamisiles guiados y un sistema de vuelo avanzado, es ideal para misiones de intercepción y combate aéreo.",
-            "precio": 4500,
+            "descripcion_corta": "Mecha ágil con lanzamisiles y equipación ofensiva.",
+            "descripcion_larga": "El Guerrero Valkyria X destaca por su velocidad y capacidad aérea. Equipado con lanzamisiles guiados, un sistema de vuelo avanzado y armamento punta, es ideal para misiones de intercepción, asalto, y combate aéreo.",
+            "precio": 450000,
             "destacado": false,
             "id_categoria": 1,
             "stock": 0,
-            "imagen": "mecha_valkyria_x.jpg",
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/valkiria.jpg",
             "caracteristicas": {
                 "velocidad_maxima": "Mach 2",
-                "altitud_operativa": "8000 m",
-                "potencia_armamento": "Media",
+                "altitud_operativa": "12000 m",
+                "potencia_armamento": "Alta",
                 "sistemas_adicionales": "Cañones de energía"
             }
         },

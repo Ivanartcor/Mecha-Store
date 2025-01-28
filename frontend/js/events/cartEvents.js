@@ -144,7 +144,7 @@ export async function checkoutCart() {
 // Plantilla HTML para Productos en el Carrito
 function productoCarritoHTML(producto) {
     const imagenProducto = producto.imagen?.trim()
-        ? `../assets/images/${producto.imagen}`
+        ? `${producto.imagen}`
         : "../assets/images/default-product.jpg";
 
         return `

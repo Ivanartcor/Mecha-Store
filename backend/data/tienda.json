@@ -151,6 +151,67 @@
                 "peso": "12 kg",
                 "compatibilidad": "Todos los modelos"
             }
+        },
+        {
+            "id": 8,
+            "nombre": "Raijin-4590",
+            "descripcion_corta": "Mecha fortaleza con capacidades defensivas avanzadas.",
+            "descripcion_larga": "El Raijin-4590 es un mecha de clase pesada diseñado para defensa estratégica. Equipado con patas retráctiles que aumentan su estabilidad y un sistema de escudos integrados, este mecha puede resistir ataques masivos mientras proporciona fuego de cobertura con sus cañones duales. Ideal para puntos críticos en el campo de batalla, ofreciendo un balance perfecto entre ofensiva y defensa.",
+            "precio": 450000,
+            "destacado": true,
+            "id_categoria": 1,
+            "stock": 2,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/raijin.jpg",
+            "caracteristicas": {
+                "peso": "100 toneladas",
+                "altura": "12 metros",
+                "modo_defensivo": "Activación de patas retráctiles",
+                "armamento": "Cañones duales de alta potencia",
+                "blindaje": "Titanio reforzado con cerámica balística",
+                "estabilidad_mejorada": "Sí",
+                "velocidad_maxima": "45 km/h",
+                "potencia_escudo": "800 MW",
+                "autonomia": "72 horas continuas",
+                "capacidad_reactor": "Reactor de fusión de 5 GW",
+                "sistemas_adicionales": [
+                    "Radar táctico de 360°",
+                    "Control de fuego automatizado",
+                    "Sistema de enfriamiento avanzado",
+                    "Emisores de humo táctico"
+                ],
+                "compatibilidad_modular": "Compatible con módulos de defensa y ataque de nivel avanzado"
+            }
+        },
+
+        {
+            "id": 9,
+            "nombre": "Cañón Ácido MK3",
+            "descripcion_corta": "Arma devastadora con proyección de ácido a alta presión.",
+            "descripcion_larga": "El Cañón Ácido MK3 es un arma diseñada para desintegrar blindajes pesados y estructuras enemigas. Su capacidad de proyectar ácido altamente corrosivo a gran distancia lo convierte en una opción ideal para eliminar objetivos blindados y Kaijus. Equipada con un sistema de presión optimizado y un contenedor reforzado, esta arma garantiza una funcionalidad precisa y letal en combate prolongado.",
+            "precio": 3200,
+            "destacado": false,
+            "id_categoria": 2,
+            "stock": 6,
+            "imagen": "http://localhost/RA4_AEE_Tienda_Online_API_REST_Y_Cliente_HTML/backend/data/images/canon-acido-MK3.jpg",
+            "caracteristicas": {
+                "peso": "5 toneladas",
+                "longitud": "8 metros",
+                "tipo": "Arma a distancia",
+                "alcance_maximo": "5 km",
+                "municion": "Ácido de alta densidad",
+                "capacidad_del_contenedor": "200 litros",
+                "velocidad_de_disparo": "1 proyección cada 3 segundos",
+                "potencia_corrosiva": "Extrema",
+                "material": "Aleación resistente a corrosión",
+                "sistemas_adicionales": [
+                    "Refrigeración activa",
+                    "Sistema de recarga rápida",
+                    "Sensor de objetivos prioritarios",
+                    "Protección contra fugas"
+                ]
+            }
         }
+        
+        
     ]
 }

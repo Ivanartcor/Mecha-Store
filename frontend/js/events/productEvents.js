@@ -201,7 +201,7 @@ export function mostrarCaracteristicas(producto) {
 // Plantilla HTML para una tarjeta de producto
 export function productoHTML(producto) {
     const imagenProducto = producto.imagen && producto.imagen.trim() !== ""
-        ? `../assets/images/${producto.imagen}`
+        ? `${producto.imagen}`
         : "../assets/images/default-product.jpg"; // Imagen genérica
 
     const botonCarrito = producto.stock > 0
@@ -226,7 +226,7 @@ export function productoHTML(producto) {
 
 function productoDetalleHTML(producto) {
     const imagenProducto = producto.imagen && producto.imagen.trim() !== ""
-        ? `../assets/images/${producto.imagen}`
+        ? `${producto.imagen}`
         : "../assets/images/default-product.jpg";
 
     const botonCarrito = producto.stock > 0

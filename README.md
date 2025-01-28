@@ -1,8 +1,7 @@
 # Mecha Store
 
 
-# **Índice**
-
+## **Índice**
 1. [Introducción](#1-introducción)  
 2. [Características Principales](#2-características-principales)  
    - [Frontend](#frontend)  
@@ -30,8 +29,9 @@
 9. [Conclusiones](#9-conclusiones)  
    - [Logros](#91-logros)  
    - [Retos y Soluciones](#92-retos-y-soluciones)  
-
 10. [Autor](#autor)
+
+
 
 
 ## **1. Introducción**

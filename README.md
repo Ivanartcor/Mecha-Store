@@ -1,5 +1,39 @@
 # Mecha Store
 
+
+# **Índice**
+
+1. [Introducción](#1-introducción)  
+2. [Características Principales](#2-características-principales)  
+   - [Frontend](#frontend)  
+   - [Backend](#backend)  
+   - [Funcionalidades Generales](#funcionalidades-generales)  
+3. [Tecnologías Utilizadas](#3-tecnologías-utilizadas)  
+   - [Frontend](#frontend-1)  
+   - [Backend](#backend-1)  
+4. [Diseño y Experiencia de Usuario](#4-diseño-y-experiencia-de-usuario)  
+   - [Previsualización](#41-previsualización)  
+5. [Arquitectura del Proyecto](#5-arquitectura-del-proyecto)  
+   - [Frontend](#51-frontend)  
+   - [Backend](#52-backend)  
+   - [Flujo de Datos](#53-flujo-de-datos)  
+6. [Flujo de Trabajo](#6-flujo-de-trabajo)  
+   - [Fases del Proyecto](#61-fases-del-proyecto)  
+   - [Herramientas Utilizadas](#62-herramientas-utilizadas)  
+7. [Funcionalidades Implementadas](#7-funcionalidades-implementadas)  
+   - [Frontend](#71-frontend)  
+   - [Backend](#72-backend)  
+8. [Pruebas Realizadas](#8-pruebas-realizadas)  
+   - [Pruebas Funcionales](#81-pruebas-funcionales)  
+   - [Pruebas de Backend](#82-pruebas-de-backend)  
+   - [Pruebas de Interfaz de Usuario](#83-pruebas-de-interfaz-de-usuario)  
+9. [Conclusiones](#9-conclusiones)  
+   - [Logros](#91-logros)  
+   - [Retos y Soluciones](#92-retos-y-soluciones)  
+
+10. [Autor](#autor)
+
+
 ## **1. Introducción**
 
 **Mecha Store** es una tienda online ficticia diseñada para ofrecer mechas de combate, armas especializadas, módulos de defensa y otros componentes avanzados. Este proyecto combina un frontend interactivo y dinámico con un backend funcional basado en API REST. La tienda se centra en proporcionar una experiencia de usuario fluida, con diseño responsivo, funcionalidades de carrito de compras y autenticación segura mediante tokens JWT.
@@ -74,12 +108,31 @@ El propósito del proyecto es mostrar el desarrollo de una aplicación web compl
   - Diseño centrado en una experiencia visual inmersiva.
   - Contraste de colores optimizado y tipografía clara para mejorar la legibilidad.
 
+---
 
-## **4. Arquitectura del Proyecto**
+### **4.1. Previsualización**
+
+login.
+![image](https://github.com/user-attachments/assets/b0d87401-b8e5-4159-82f0-cc996d25faa0)
+
+dashboard.
+![image](https://github.com/user-attachments/assets/fd9a538a-2be3-4766-989e-42db95d97381)
+
+product.
+![image](https://github.com/user-attachments/assets/d566078c-1d4e-4011-9fb0-657490491202)
+
+categories.
+![image](https://github.com/user-attachments/assets/63c517b6-0e89-4e4c-8f50-7f48e91c24c3)
+
+cart.
+![image](https://github.com/user-attachments/assets/0e6927aa-5c15-45d3-ae31-ee462f7ff3f3)
+
+
+## **5. Arquitectura del Proyecto**
 
 La estructura del proyecto se divide en dos componentes principales: el **frontend** y el **backend**, organizados de forma lógica para separar las responsabilidades y garantizar un flujo claro entre las capas de cliente y servidor.
 
-### **4.1. Frontend**
+### **5.1. Frontend**
 Ubicado en la carpeta `frontend`, el frontend utiliza **HTML**, **CSS** y **JavaScript** para gestionar la interfaz de usuario y las interacciones. Está dividido en:
 
 - **`assets/`**: Contiene recursos multimedia.
@@ -99,7 +152,7 @@ Ubicado en la carpeta `frontend`, el frontend utiliza **HTML**, **CSS** y **Java
   - `cart.html`: Carrito de compras.
   - `product.html`: Página de detalles de productos.
 
-### **4.2. Backend**
+### **5.2. Backend**
 Ubicado en la carpeta `backend`, el backend utiliza **PHP** para gestionar la API REST. Está organizado en:
 
 - **`api/`**:
@@ -111,7 +164,7 @@ Ubicado en la carpeta `backend`, el backend utiliza **PHP** para gestionar la AP
   - `tienda.json`: Datos de categorías y productos.
   - **`images/`**: Imágenes de productos.
 
-### **4.3. Flujo de Datos**
+### **5.3. Flujo de Datos**
 - **Inicio de sesión**:
   1. El usuario envía credenciales al endpoint `login.php`.
   2. Si las credenciales son correctas, se devuelve un token JWT y datos del usuario.
@@ -124,32 +177,14 @@ Ubicado en la carpeta `backend`, el backend utiliza **PHP** para gestionar la AP
 - **Navegación por web**:
   Cada vez que se cambia de página, se verifica el token.
   
----
-
-### **4.3. Previsualización**
-
-login.
-![image](https://github.com/user-attachments/assets/b0d87401-b8e5-4159-82f0-cc996d25faa0)
-
-dashboard.
-![image](https://github.com/user-attachments/assets/fd9a538a-2be3-4766-989e-42db95d97381)
-
-product.
-![image](https://github.com/user-attachments/assets/d566078c-1d4e-4011-9fb0-657490491202)
-
-categories.
-![image](https://github.com/user-attachments/assets/63c517b6-0e89-4e4c-8f50-7f48e91c24c3)
-
-cart.
-![image](https://github.com/user-attachments/assets/0e6927aa-5c15-45d3-ae31-ee462f7ff3f3)
 
 
 
-## **5. Flujo de Trabajo**
+## **6. Flujo de Trabajo**
 
 El proyecto fue desarrollado siguiendo buenas prácticas de programación, dividiendo las tareas en fases claras para mantener un desarrollo modular y escalable.
 
-### **5.1. Fases del Proyecto**
+### **6.1. Fases del Proyecto**
 1. **Diseño inicial**:
    - Creación del diseño temático inspirado en ciencia ficción.
    - Estructuración básica de las páginas HTML y los estilos CSS.
@@ -166,7 +201,7 @@ El proyecto fue desarrollado siguiendo buenas prácticas de programación, divid
    - Mejoras en la responsividad del diseño.
    - Optimización y refactorización del código JavaScript y CSS.
 
-### **5.2. Herramientas utilizadas**
+### **6.2. Herramientas utilizadas**
 
   - **Visual Studio Code**: Editor de código.
   - **Postman**: Pruebas de endpoints.
@@ -175,9 +210,9 @@ El proyecto fue desarrollado siguiendo buenas prácticas de programación, divid
 
 ---
 
-## **6. Funcionalidades Implementadas**
+## **7. Funcionalidades Implementadas**
 
-### **6.1. Frontend**
+### **7.1. Frontend**
 - **Autenticación**:
   - Inicio de sesión mediante email y contraseña.
   - Validación de usuario utilizando tokens JWT.
@@ -194,7 +229,7 @@ El proyecto fue desarrollado siguiendo buenas prácticas de programación, divid
 - **Diseño responsivo**:
   - Interfaz adaptable a diferentes tamaños de pantalla.
 
-### **6.2. Backend**
+### **7.2. Backend**
 - **Endpoints principales**:
   - `login.php`: Autenticación y generación de tokens JWT.
   - `carrito.php`: Validación y simulación de compras.

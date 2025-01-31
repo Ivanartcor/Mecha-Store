@@ -40,6 +40,7 @@ export function handleLogout() {
     window.location.href = "login.html";
 }
 
+//De momento lo unico que se comprueba es si existe, para una mejor validación modificar este método (ej: caducidad)
 export function verifyAuthentication() {
     const token = getItem("token");
     if (!token) window.location.href = "login.html";

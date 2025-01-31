@@ -18,7 +18,7 @@ export function setInnerHTML(elementId, html) {
     if (element) element.innerHTML = html;
 }
 
-// utils/ui.js
+
 export function showMessage(message, elementId, type = "success") {
     const element = document.getElementById(elementId);
     if (element) {

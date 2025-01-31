@@ -5,11 +5,12 @@ import { initAuthPage } from "./events/authEvents.js";
 import { loadHeader } from "./header.js";
 
 
-// Exponer la función globalmente para que sea accesible en el HTML
-//window.verProducto = verProducto;
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    //Primero cargo siempre el header, una vez cargado inicio el resto
     loadHeader().then(() => {
         // Inicializar autenticación y mostrar nombre del usuario
         initAuthPage();

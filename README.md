@@ -204,6 +204,7 @@ El proyecto fue desarrollado siguiendo buenas prácticas de programación, divid
 ### **6.2. Herramientas utilizadas**
 
   - **Visual Studio Code**: Editor de código.
+  - **Xampp**: Para servidor local apache para funcionamiento del proyecto.
   - **Postman**: Pruebas de endpoints.
   - **Google Chrome**: Depuración del frontend.
   - **Git**: Control de versiones.
